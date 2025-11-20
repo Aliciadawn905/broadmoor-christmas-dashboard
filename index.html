@@ -23,34 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Music Player Button */
-        .music-player {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #8b1a1a 0%, #660000 100%);
-            border: 2px solid #d4af37;
-            border-radius: 50px;
-            padding: 12px 24px;
-            color: #f5f5dc;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .music-player:hover {
-            background: linear-gradient(135deg, #a52020 0%, #7a0000 100%);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-            transform: translateY(-2px);
-        }
-
         /* Festive garland border at top */
         .garland-border {
             position: fixed;
@@ -71,6 +43,24 @@
             z-index: 1001;
         }
 
+        /* WORKING SNOWFLAKES - from original code */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1.5em;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 9999;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
         /* Hero Section */
         .hero-section {
             background: linear-gradient(to bottom, rgba(139, 26, 26, 0.95), rgba(45, 24, 16, 0.9));
@@ -82,14 +72,14 @@
             padding-top: 40px;
         }
 
-        /* Ornament Logo */
+        /* Holly at top */
         .ornament-logo {
             text-align: center;
             position: relative;
         }
 
         .ornament-logo img {
-            max-width: 180px;
+            max-width: 150px;
             filter: drop-shadow(0 6px 12px rgba(212, 175, 55, 0.5));
             animation: gentle-sway 4s ease-in-out infinite;
         }
@@ -123,7 +113,7 @@
             z-index: 5;
         }
 
-        /* Nutcracker bookends - using actual image */
+        /* Nutcracker bookends */
         .nutcracker {
             position: absolute;
             width: 130px;
@@ -279,7 +269,7 @@
                 0 0 50px rgba(212, 175, 55, 0.3);
         }
 
-        /* Garland draped on top of cards - CSS CREATED */
+        /* CSS Pine Garland */
         .garland-drape {
             position: absolute;
             top: -50px;
@@ -291,7 +281,6 @@
             pointer-events: none;
         }
 
-        /* Pine branch base */
         .garland-drape::before {
             content: '';
             position: absolute;
@@ -299,7 +288,6 @@
             height: 60px;
             top: 30px;
             background: 
-                /* Main pine branch layer */
                 radial-gradient(ellipse 100px 40px at 10%, #1a5c1a 0%, transparent 60%),
                 radial-gradient(ellipse 110px 45px at 15%, #0f4d0f 0%, transparent 65%),
                 radial-gradient(ellipse 120px 50px at 20%, #1a5c1a 0%, transparent 65%),
@@ -314,7 +302,6 @@
             filter: blur(1px) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
         }
 
-        /* Center pinecone cluster */
         .garland-drape::after {
             content: '';
             position: absolute;
@@ -324,7 +311,6 @@
             left: 50%;
             transform: translateX(-50%);
             background:
-                /* Three pinecones */
                 radial-gradient(ellipse 35px 50px at 30% 40%, #8b6914 0%, #5d4610 40%, transparent 70%),
                 radial-gradient(ellipse 40px 55px at 50% 35%, #6b5320 0%, #5d4610 45%, transparent 70%),
                 radial-gradient(ellipse 35px 50px at 70% 40%, #8b6914 0%, #5d4610 40%, transparent 70%);
@@ -332,7 +318,6 @@
             filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
         }
 
-        /* Red berries and gold accents */
         .pine-accent {
             position: absolute;
             width: 15px;
@@ -355,7 +340,6 @@
                 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        /* Position berries and gold ornaments */
         .pine-accent:nth-child(1) { top: 45px; left: 20%; }
         .pine-accent:nth-child(2) { top: 40px; left: 35%; }
         .pine-accent:nth-child(3) { top: 35px; left: 45%; }
@@ -365,7 +349,6 @@
         .pine-accent:nth-child(7) { top: 50px; right: 25%; }
         .pine-accent:nth-child(8) { top: 42px; left: 55%; }
 
-        /* Small pinecones scattered */
         .pine-cone-small {
             position: absolute;
             width: 20px;
@@ -435,38 +418,6 @@
             border-bottom-color: #8b1a1a;
         }
 
-        /* Snowflakes - HIGHLY VISIBLE */
-        .snowflake {
-            position: fixed !important;
-            color: #ffffff !important;
-            font-size: 3em !important;
-            pointer-events: none;
-            z-index: 99999 !important;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 1),
-                0 0 20px rgba(255, 255, 255, 0.8),
-                0 0 30px rgba(255, 255, 255, 0.6) !important;
-            animation: snowfall linear forwards;
-            font-weight: bold !important;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
         /* Footer decoration */
         .footer-decoration {
             text-align: center;
@@ -520,13 +471,6 @@
                 display: none;
             }
 
-            .music-player {
-                top: 10px;
-                right: 10px;
-                padding: 10px 18px;
-                font-size: 14px;
-            }
-
             .ornament-logo img {
                 max-width: 120px;
             }
@@ -542,27 +486,15 @@
     <!-- Festive Garland Border -->
     <div class="garland-border"></div>
 
-    <!-- Music Player -->
-    <button class="music-player" id="musicPlayer" onclick="toggleMusic()">
-        <span>♪</span>
-        <span id="musicText">Play Holiday Music</span>
-    </button>
-
-    <audio id="christmasAudio" loop preload="auto">
-        <source src="Christmas.mp3" type="audio/mpeg">
-        <source src="Christmas.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
     <!-- Hero Section -->
     <div class="hero-section">
         <!-- Holly at the top center -->
         <div class="ornament-logo">
-            <img src="holly.png" alt="Holiday Holly" style="max-width: 150px;">
+            <img src="holly.png" alt="Holiday Holly">
         </div>
         <div class="main-title">
             <div class="title-container">
-                <!-- Nutcracker Bookends using uploaded image -->
+                <!-- Nutcracker Bookends -->
                 <div class="nutcracker nutcracker-left">
                     <img src="Nutcracker2.png" alt="Nutcracker Guard">
                 </div>
@@ -607,7 +539,6 @@
         <h2 class="section-title">Confirmed Dining Reservations</h2>
 
         <div class="activity-card" style="position: relative;">
-            <!-- CSS Pine Garland draped on top -->
             <div class="garland-drape">
                 <div class="pine-accent berry"></div>
                 <div class="pine-accent gold"></div>
@@ -637,7 +568,18 @@
 
         <div class="activity-card" style="position: relative;">
             <div class="garland-drape">
-                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
             </div>
             <img src="image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago">
             <div class="activity-content">
@@ -654,7 +596,18 @@
 
         <div class="activity-card" style="position: relative;">
             <div class="garland-drape">
-                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
             </div>
             <img src="image_b25262.png" class="activity-card-image" alt="The Penrose Room">
             <div class="activity-content">
@@ -672,7 +625,18 @@
 
         <div class="activity-card" style="position: relative;">
             <div class="garland-drape">
-                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
             </div>
             <img src="image_b25200.png" class="activity-card-image" alt="La Taverne">
             <div class="activity-content">
@@ -720,124 +684,29 @@
     </div>
 
     <script>
-        console.log('==========================================');
-        console.log('🎄 BROADMOOR CHRISTMAS DASHBOARD LOADED 🎄');
-        console.log('==========================================');
-        
-        // SNOWFALL INITIALIZATION
-        console.log('\n--- SNOWFALL SYSTEM ---');
-        let snowflakeCount = 0;
-        
+        // SIMPLE WORKING SNOWFALL - Based on original code
+        const snowContainer = document.body;
+
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
-            const symbols = ['❄', '❅', '❆', '✻', '✼', '❊'];
-            snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            snowflake.innerHTML = '❄';
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = (Math.random() * 12 + 10) + 's';
-            snowflake.style.fontSize = (Math.random() * 2 + 2.5) + 'em';
-            document.body.appendChild(snowflake);
-            snowflakeCount++;
-            
-            if (snowflakeCount <= 5) {
-                console.log(`Snowflake #${snowflakeCount} created at position ${snowflake.style.left}`);
-            }
-            
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowContainer.appendChild(snowflake);
+
             setTimeout(() => {
-                if (snowflake && snowflake.parentNode) {
-                    snowflake.remove();
-                    snowflakeCount--;
-                }
-            }, 22000);
-        }
-        
-        // Create initial snowflakes
-        console.log('Creating 30 initial snowflakes...');
-        for (let i = 0; i < 30; i++) {
-            setTimeout(createSnowflake, i * 200);
-        }
-        setInterval(createSnowflake, 600);
-        console.log('✓ Snowfall system active');
-        
-        // Verify snowflakes after 2 seconds
-        setTimeout(() => {
-            const allSnowflakes = document.querySelectorAll('.snowflake');
-            console.log(`✓ Currently ${allSnowflakes.length} snowflakes on screen`);
-            if (allSnowflakes.length === 0) {
-                console.error('❌ WARNING: No snowflakes visible! Check CSS z-index.');
-            }
-        }, 2000);
-
-        // MUSIC PLAYER INITIALIZATION
-        console.log('\n--- MUSIC PLAYER ---');
-        let isPlaying = false;
-        const audio = document.getElementById('christmasAudio');
-        const musicText = document.getElementById('musicText');
-        const musicButton = document.getElementById('musicPlayer');
-
-        console.log('Audio element:', audio);
-        console.log('Audio source:', audio ? audio.querySelector('source')?.src : 'N/A');
-        console.log('Page URL:', window.location.href);
-
-        if (audio) {
-            audio.addEventListener('loadeddata', () => {
-                console.log('✓ Audio file loaded successfully!');
-            });
-            
-            audio.addEventListener('error', (e) => {
-                console.error('❌ AUDIO ERROR:');
-                console.error('  Error code:', audio.error?.code);
-                console.error('  Error type:', audio.error?.message);
-                console.error('  Expected file: Christmas.mp3');
-                console.error('  \nTROUBLESHOOTING:');
-                console.error('  1. File must be named exactly: Christmas.mp3');
-                console.error('  2. File must be in same folder as index.html');
-                console.error('  3. Check GitHub repository for the file');
-                alert('❌ Music file not found!\n\nMake sure Christmas.mp3 is uploaded to your GitHub repository in the same folder as index.html.');
-            });
-            
-            console.log('Loading audio file...');
-            audio.load();
-        } else {
-            console.error('❌ Audio element not found in DOM');
+                snowflake.remove();
+            }, 5000);
         }
 
-        function toggleMusic() {
-            console.log('\n--- MUSIC TOGGLE ---');
-            console.log('Button clicked. Currently playing:', isPlaying);
-            
-            if (isPlaying) {
-                audio.pause();
-                musicText.textContent = 'Play Holiday Music';
-                isPlaying = false;
-                console.log('Music paused');
-            } else {
-                console.log('Attempting to play...');
-                const playPromise = audio.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise
-                        .then(() => {
-                            console.log('✓✓✓ MUSIC IS PLAYING! ✓✓✓');
-                            musicText.textContent = 'Pause Music';
-                            isPlaying = true;
-                        })
-                        .catch((error) => {
-                            console.error('❌ Playback failed:', error.name, error.message);
-                            if (error.name === 'NotSupportedError') {
-                                alert('❌ Audio file not supported or not found.\n\nCheck that Christmas.mp3 exists in your repository.');
-                            } else {
-                                alert('Cannot play music: ' + error.message);
-                            }
-                            musicText.textContent = 'Play Holiday Music';
-                            isPlaying = false;
-                        });
-                }
-            }
-        }
+        // Create snowflakes continuously
+        setInterval(createSnowflake, 300);
 
-        console.log('\n✓ All systems initialized');
-        console.log('==========================================\n');
+        // Initial batch
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
     </script>
 
 </body>
