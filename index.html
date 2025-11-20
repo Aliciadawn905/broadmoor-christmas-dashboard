@@ -3,18 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎄 Our Broadmoor Christmas Itinerary 🎁</title>
+    <title>🎄 The Broadmoor Christmas Dashboard 🎁</title>
     <style>
-        /* CSS for the Festive Look */
-        /* Snow effect CSS */
+        /* BASE STYLES */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #333333; /* Dark Charcoal Background */
+            color: #ffffff; /* White text for contrast */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* --- NEW BROADMOOR TITLE & ORNAMENT --- */
+        .top-title {
+            background-color: #b22222;
+            color: #ffffff;
+            padding: 20px 20px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .top-title img.logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        .top-title h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 3px;
+        }
+        .top-title h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .header {
+            background-color: #b22222;
+            color: #ffffff;
+            padding: 0 20px 0;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header img.main-img {
+            width: 100%;
+            max-width: 750px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .header h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        /* ITINERARY COLOR FIX */
+        .header span.itinerary-color {
+            color: #ffd700; /* Changed to Gold for better contrast */
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            /* Pine Tree Background (Left Side Fix) */
+            background-image: url('https://i.imgur.com/k6lP09L.png');
+            background-repeat: repeat-y;
+            background-position: 5px top; /* Moved slightly right */
+            background-size: 25px auto;
+            padding-left: 35px; 
+        }
+
+        .section-title {
+            color: #006400;
+            border-bottom: 3px solid #b22222;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        /* ACTIVITY CARDS (Kept consistent) */
+        .activity-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 0;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+        
+        .details {
+            font-size: 0.9em;
+            color: #555; /* Dark gray for detail text */
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        .details strong {
+            color: #333;
+        }
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .activity-content {
+            padding: 20px;
+        }
+
+        /* --- LARGE DECORATION ELEMENTS CSS --- */
+        .decoration {
+            position: fixed;
+            bottom: 0;
+            z-index: 999; 
+            pointer-events: none; /* Allows user to click through to page content */
+            opacity: 0.85; /* Slight transparency */
+        }
+
+        .nutcracker-left {
+            left: 10px;
+            height: 500px; /* Large element size */
+            width: auto;
+        }
+
+        .ornament-right {
+            right: 10px;
+            height: 200px; /* Large element size */
+            width: auto;
+        }
+
+        /* --- SNOW EFFECT CSS (Restored) --- */
         .snow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Allows clicks through the snow */
-            z-index: 1000; /* Ensures snow is on top */
+            pointer-events: none;
+            z-index: 1000;
             overflow: hidden;
         }
 
@@ -30,131 +167,40 @@
                 transform: translateY(100vh);
             }
         }
-        body {
-            font-family: 'Georgia', serif; /* Elegant font */
-            background-color: #f7f7f7; /* Light background */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .header {
-            background-color: #b22222; /* Festive Red */
-            color: #ffffff;
-            padding: 30px 20px 0; /* Adjusted padding */
-            letter-spacing: 2px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header img {
-            width: 100%;
-            max-width: 750px; /* Large image for the header */
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-
-        .header span {
-            color: #006400; /* Festive Green for accent */
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            color: #006400; /* Dark Green Title */
-            border-bottom: 3px solid #b22222; /* Red underline */
-            padding-bottom: 10px;
-            margin-top: 30px;
-            font-size: 1.8em;
-        }
-
-        .activity-card {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin: 20px 0;
-            padding: 0; /* Remove internal padding for full-width image */
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-            overflow: hidden; /* Contains the image */
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            /* Added festive background */
-            background-image: url('https://i.imgur.com/k6lP09L.png'); /* Pine tree border image */
-            background-repeat: repeat-y; /* Repeat vertically */
-            background-position: left top; /* Position at the top left */
-            background-size: 50px auto; /* Size of the tree image */
-            padding-left: 70px; /* Make space for the trees */
-        }
-        .activity-card:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .activity-card-image {
-            width: 100%;
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover; /* Ensures image covers the area nicely */
-        }
-
-        .activity-content {
-            padding: 20px; /* Inner padding for text */
-        }
-
-        .activity-card h3 {
-            color: #b22222; /* Red title for activities */
-            margin-top: 0;
-            font-size: 1.4em;
-        }
-
-        .activity-card a {
-            color: #006400; /* Green links */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .activity-card a:hover {
-            text-decoration: underline;
-        }
-
-        .details {
-            font-size: 0.9em;
-            color: #555;
-            margin-top: 10px;
-            line-height: 1.6;
-        }
-        .details strong {
-            color: #333;
-        }
     </style>
 </head>
 <body>
 
+    <img src="./nutcracker.png" alt="Nutcracker Decoration" class="decoration nutcracker-left">
+    <img src="./ornaments_cluster.png" alt="Big Christmas Ornament Cluster" class="decoration ornament-right">
+
+    <audio autoplay loop>
+        <source src="./Christmas.mp3" type="audio/mpeg"> 
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="top-title">
+        <img src="./Screenshot 2025-11-19 at 6.07.34 PM.png" alt="Broadmoor Christmas Ornament" class="logo">
+        <h1>THE BROADMOOR</h1>
+        <h2>Colorado Springs</h2>
+    </div>
+
     <div class="header">
-        <img src="./image_b2563d.png" alt="The Broadmoor decorated with Christmas lights">
-        <h1>🎄 Our Christmas <span>Itinerary</span> 🎁</h1>
-        <p style="font-size: 0.5em; margin-top: 5px; padding-bottom: 30px;">at The Broadmoor, CO Springs</p>
+        <img src="./image_039dd7.png" alt="The Broadmoor decorated with Christmas lights" class="main-img">
+        
+        <h3>
+            <img src="https://i.imgur.com/b52mJpT.png" style="height:25px; vertical-align:middle;" alt="Holly icon"> Our Christmas <span class="itinerary-color">Itinerary</span> <img src="https://i.imgur.com/i9zKx1o.png" style="height:25px; vertical-align:middle;" alt="Pinecone icon">
+        </h3>
+        <p style="font-size: 0.7em; margin-top: 5px; padding-bottom: 30px;">
+            At The Broadmoor, CO Springs
+        </p>
     </div>
 
     <div class="container">
 
-        <h2 class="section-title">🏨 Accommodation</h2>
+        <h2 class="section-title">
+            🎁 Accommodation
+        </h2>
 
         <div class="activity-card">
             <img src="./image_b255e4.png" class="activity-card-image" alt="Broadmoor West Premier Room">
@@ -169,12 +215,14 @@
             </div>
         </div>
 
-        <h2 class="section-title">🍽️ Confirmed Dining Reservations</h2>
+        <h2 class="section-title">
+            🍽️ Confirmed Dining Reservations
+        </h2>
 
         <div class="activity-card">
             <img src="./image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room Setup">
             <div class="activity-content">
-                <h3>🍽️ Lake Terrace Dining Room (Sunday Brunch)</h3>
+                <h3>Lake Terrace Dining Room (Sunday Brunch)</h3>
                 <p><strong>Date:</strong> Sunday, December 14, 2025 | <strong>Time:</strong> 9:00 AM</p>
                 <p class="details">
                     **Confirmation:** d0581a4a88d<br>
@@ -187,7 +235,7 @@
         <div class="activity-card">
             <img src="./image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago Interior">
             <div class="activity-content">
-                <h3>🍽️ Ristorante Del Lago (Italian)</h3>
+                <h3>Ristorante Del Lago (Italian)</h3>
                 <p><strong>Date:</strong> Monday, December 15, 2025 | <strong>Time:</strong> 6:30 PM</p>
                 <p class="details">
                     **Confirmation:** 38cfla4aa7c<br>
@@ -200,7 +248,7 @@
         <div class="activity-card">
             <img src="./image_b25262.png" class="activity-card-image" alt="The Penrose Room Interior">
             <div class="activity-content">
-                <h3>🍽️ The Penrose Room (Elegant Fine Dining)</h3>
+                <h3>The Penrose Room (Elegant Fine Dining)</h3>
                 <p><strong>Date:</strong> Tuesday, December 16, 2025 | <strong>Time:</strong> 6:00 PM</p>
                 <p class="details">
                     **Confirmation:** 50bd1a4aa3b<br>
@@ -213,7 +261,7 @@
         <div class="activity-card">
             <img src="./image_b25200.png" class="activity-card-image" alt="La Taverne Bar Area">
             <div class="activity-content">
-                <h3>🍽️ La Taverne (Steakhouse)</h3>
+                <h3>La Taverne (Steakhouse)</h3>
                 <p><strong>Date:</strong> Wednesday, December 17, 2025 | <strong>Time:</strong> 11:00 AM</p>
                 <p class="details">
                     **Confirmation:** 43851a4aafb<br>
@@ -223,22 +271,35 @@
             </div>
         </div>
 
-        <h2 class="section-title">✨ Other Holiday Fun</h2>
+        <h2 class="section-title">
+            🌟 Other Holiday Fun
+        </h2>
         
         <div class="activity-card">
             <div class="activity-content">
                 <h3>Explore The Broadmoor's Holiday Offerings</h3>
                 <p><strong>Dates:</strong> Throughout our stay!</p>
                 <p class="details">
-                    Check out all the special seasonal events, displays, and activities offered by the hotel.<br>
+                    View photos of the stunning decorations like the .<br>
                     <a href="https://www.broadmoor.com/holidays" target="_blank">View Broadmoor Holiday Events & Activities</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="activity-card">
+            <img src="./Screenshot 2025-11-19 at 6.08.36 PM.png" class="activity-card-image" alt="Broadmoor Festive Lobby">
+            <div class="activity-content">
+                <h3>Relax in the Grand Lobby</h3>
+                <p>Enjoy the cozy fireplaces and holiday ambiance.</p>
+                <p class="details">
+                    The perfect spot to enjoy some quiet time together.
                 </p>
             </div>
         </div>
 
     </div>
-<script>
-        // JavaScript for falling snow
+
+    <script>
         const snowContainer = document.createElement('div');
         snowContainer.className = 'snow-container';
         document.body.appendChild(snowContainer);
@@ -248,23 +309,23 @@
             snowflake.className = 'snowflake';
             snowContainer.appendChild(snowflake);
 
-            const size = Math.random() * 5 + 2; // Size between 2px and 7px
+            const size = Math.random() * 5 + 2; 
             snowflake.style.width = size + 'px';
             snowflake.style.height = size + 'px';
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Fall speed between 5-10s
-            snowflake.style.opacity = Math.random() * 0.7 + 0.3; // Opacity between 0.3-1
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3; 
 
             snowflake.addEventListener('animationend', () => {
                 snowflake.remove();
-                createSnowflake(); // Continuously create new snowflakes
+                createSnowflake(); 
             });
         }
 
-        for (let i = 0; i < 50; i++) { // Generate 50 snowflakes
+        for (let i = 0; i < 50; i++) { 
             createSnowflake();
         }
     </script>
-    
+
 </body>
 </html>
