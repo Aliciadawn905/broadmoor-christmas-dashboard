@@ -3,296 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎄 The Broadmoor Christmas Dashboard 🎁</title>
+    <title>🎄 The Broadmoor Christmas Experience 🎁</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* BASE STYLES & DARK BACKGROUND FIX */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Georgia', serif;
-            background-color: #1a1a1a; 
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #2d1810 0%, #1a0f0a 100%);
+            color: #f5f5dc;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* --- RED HERO SECTION WITH HOLLY/PINE CONES --- */
-        .top-title {
-            background-color: #b22222;
-            color: #ffffff;
-            padding: 20px 20px 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            /* Added background decorations (Holly/Presents) */
+        /* Elegant snowflake background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-image: 
-                url('https://i.imgur.com/k2x7c7K.png'), 
-                url('https://i.imgur.com/Q2y1v8o.png'); 
-            background-repeat: repeat-x, no-repeat;
-            background-position: top center, bottom right;
-            background-size: auto 50px, 100px auto;
-        }
-        .top-title img.logo {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-        .top-title h1 {
-            font-size: 3em;
-            margin: 0;
-            letter-spacing: 3px;
-        }
-        .top-title h2 {
-            font-size: 1.5em;
-            margin: 0 0 10px;
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px, 100px 100px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .header {
-            background-color: #b22222;
-            color: #ffffff;
-            padding: 0 20px 0;
-            letter-spacing: 2px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
+        /* Music Player Button */
+        .music-player {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #8b1a1a 0%, #660000 100%);
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: #f5f5dc;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .header img.main-img {
-            width: 100%;
-            max-width: 750px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        .music-player:hover {
+            background: linear-gradient(135deg, #a52020 0%, #7a0000 100%);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
         }
 
-        .header h3 {
-            font-size: 1.5em;
-            margin-top: 0;
-            margin-bottom: 5px;
+        .music-icon {
+            font-size: 20px;
         }
 
-        .header span.itinerary-color {
-            color: #ffd700; 
-        }
-        
-        /* FIX FOR THE PINE TREE BORDER */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-image: url('./k6lP09L.png'); /* Corrected to use your uploaded file */
-            background-repeat: repeat-y;
-            background-position: 5px top;
-            background-size: 25px auto;
-            padding-left: 35px; 
-            padding-right: 35px;
-        }
-
-        /* TEXT VISIBILITY FIX FOR SECTION TITLES */
-        .section-title {
-            color: #006400;
-            border-bottom: 3px solid #b22222;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            font-size: 1.8em;
-            text-align: center;
-        }
-
-        /* CARD BACKGROUND & TEXT FIX */
-        .activity-card {
-            background-color: #ffffff;
-            color: #333; 
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin: 20px 0;
-            padding: 0;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
+        /* Elegant Header Section */
+        .hero-section {
+            background: linear-gradient(to bottom, rgba(139, 26, 26, 0.95), rgba(45, 24, 16, 0.9));
+            border-bottom: 4px solid #d4af37;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
             overflow: hidden;
         }
-        
-        /* DECORATION APPEARANCE FIX */
-        .decoration {
-            position: fixed;
-            bottom: 0;
-            z-index: 999; 
-            pointer-events: none;
-            /* Added background color to hide the transparency checkerboard */
-            background-color: rgba(26, 26, 26, 0.7); 
-            border-top-right-radius: 20px;
-            padding: 10px;
-        }
-        .nutcracker-left {
-            left: 10px;
-            height: 500px;
-            width: auto;
-            border-top-left-radius: 20px;
-        }
-        .ornament-right {
-            right: 10px;
-            height: 200px; 
-            width: auto;
-            border-top-right-radius: 20px;
+
+        /* Decorative top border */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #d4af37 0px,
+                #d4af37 20px,
+                #8b1a1a 20px,
+                #8b1a1a 40px,
+                #0f4d0f 40px,
+                #0f4d0f 60px
+            );
         }
 
-        /* SNOW EFFECT CSS (Restored) */
-        .snow-container {
-            /* Kept for snow generation */
+        .ornament-logo {
+            text-align: center;
+            padding-top: 40px;
         }
-        /* ... rest of existing CSS ... */
+
+        .ornament-logo img {
+            max-width: 120px;
+            filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.4));
+            animation: gentle-sway 3s ease-in-out infinite;
+        }
+
+        @keyframes gentle-sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .main-title {
+            text-align: center;
+            padding: 20px 20px 30px;
+        }
+
+        .main-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 700;
+            color: #f5f5dc;
+            letter-spacing: 8px;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            font-weight: 300;
+            color: #d4af37;
+            letter-spacing: 4px;
+            font-style: italic;
+        }
+
+        /* Hero Image Section */
+        .hero-image-section {
+            background: linear-gradient(to bottom, rgba(45, 24, 16, 0.9), rgba(26, 15, 10, 0.95));
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-image-section img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .hero-image-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #f5f5dc;
+            margin-bottom: 10px;
+        }
+
+        .hero-image-section .itinerary-highlight {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .hero-image-section p {
+            font-size: 1.2em;
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Elegant decorative borders */
+        .container::before,
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                #d4af37 0px,
+                #d4af37 30px,
+                transparent 30px,
+                transparent 40px,
+                #0f4d0f 40px,
+                #0f4d0f 70px,
+                transparent 70px,
+                transparent 80px
+            );
+        }
+
+        .container::before {
+            left: 10px;
+        }
+
+        .container::after {
+            right: 10px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #d4af37;
+            text-align: center;
+            margin: 50px 0 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #8b1a1a;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title::after {
+            content: '❄';
+            position: absolute;
+            left: 50%;
+            bottom: -18px;
+            transform: translateX(-50%);
+            font-size: 0.6em;
+            color: #d4af37;
+            background: #1a0f0a;
+            padding: 0 15px;
+        }
+
+        /* Activity Cards */
+        .activity-card {
+            background: linear-gradient(135deg, #f5f5dc 0%, #e8dcc0 100%);
+            border: 2px solid #8b1a1a;
+            border-radius: 15px;
+            margin: 30px 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+        }
+
+        .activity-card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid #8b1a1a;
+        }
+
+        .activity-content {
+            padding: 30px;
+            color: #2d1810;
+        }
+
+        .activity-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #8b1a1a;
+            margin-bottom: 15px;
+            border-left: 4px solid #d4af37;
+            padding-left: 15px;
+        }
+
+        .activity-content p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .activity-content p strong {
+            color: #0f4d0f;
+            font-weight: 600;
+        }
+
+        .details {
+            background: rgba(139, 26, 26, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #8b1a1a;
+            margin-top: 15px;
+        }
+
+        .details a {
+            color: #0f4d0f;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .details a:hover {
+            color: #d4af37;
+            border-bottom-color: #8b1a1a;
+        }
+
+        /* Snowfall Effect */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 999;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Footer decoration */
+        .footer-decoration {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.3em;
+            color: #d4af37;
+            font-style: italic;
+            background: linear-gradient(to top, rgba(139, 26, 26, 0.3), transparent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title h1 {
+                font-size: 3em;
+                letter-spacing: 4px;
+            }
+
+            .main-title h2 {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .activity-content h3 {
+                font-size: 1.5em;
+            }
+
+            .container::before,
+            .container::after {
+                display: none;
+            }
+
+            .music-player {
+                top: 10px;
+                right: 10px;
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <img src="./nutcracker.png" alt="Nutcracker Decoration" class="decoration nutcracker-left">
-    <img src="./ornaments_cluster.png" alt="Big Christmas Ornament Cluster" class="decoration ornament-right">
-    
-    <audio autoplay loop>
-        <source src="./Christmas.mp3" type="audio/mpeg"> 
+    <!-- Music Player -->
+    <button class="music-player" id="musicPlayer" onclick="toggleMusic()">
+        <span class="music-icon">🎵</span>
+        <span id="musicText">Play Holiday Music</span>
+    </button>
+
+    <audio id="christmasAudio" loop>
+        <source src="Christmas.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <div class="top-title">
-        <img src="./b52mJpT.png" alt="Broadmoor Christmas Ornament" class="logo">
-        <h1>THE BROADMOOR</h1>
-        <h2>Colorado Springs</h2>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="ornament-logo">
+            <img src="b52mJpT.png" alt="Broadmoor Christmas Ornament">
+        </div>
+        <div class="main-title">
+            <h1>THE BROADMOOR</h1>
+            <h2>Colorado Springs</h2>
+        </div>
     </div>
 
-    <div class="header">
-        <img src="./image_039dd7.png" alt="The Broadmoor decorated with Christmas lights" class="main-img">
-        
-        <h3>
-            Our Christmas <span class="itinerary-color">Itinerary</span>
-        </h3>
-        <p style="font-size: 0.7em; margin-top: 5px; padding-bottom: 30px;">
-            At The Broadmoor, CO Springs
-        </p>
+    <!-- Hero Image Section -->
+    <div class="hero-image-section">
+        <img src="image_039dd7.png" alt="The Broadmoor decorated with Christmas lights">
+        <h3>Our Christmas <span class="itinerary-highlight">Itinerary</span></h3>
+        <p>A Luxurious Holiday Celebration</p>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
 
-        <h2 class="section-title">
-            🎁 Accommodation
-        </h2>
+        <!-- Accommodation Section -->
+        <h2 class="section-title">🎁 Accommodation</h2>
 
         <div class="activity-card">
-            <img src="./image_b255e4.png" class="activity-card-image" alt="Broadmoor West Premier Room">
+            <img src="image_b255e4.png" class="activity-card-image" alt="Broadmoor West Premier Room">
             <div class="activity-content">
-                <h3>BROADMOOR WEST PREMIER</h3>
-                <p><strong>Check-in:</strong> Dec 14th, 2025 | <strong>Check-out:</strong> Dec 18th, 2025*</p>
-                <p class="details">
-                    **Room Type:** Broadmoor West Premier (550 sq. ft.)<br>
-                    **Note:** *Please confirm the exact check-in/out dates with your confirmation email.<br>
-                    <a href="https://www.broadmoor.com/accommodations" target="_blank">View Broadmoor Accommodations</a>
-                </p>
+                <h3>Broadmoor West Premier</h3>
+                <p><strong>Check-in:</strong> December 14th, 2025 | <strong>Check-out:</strong> December 18th, 2025</p>
+                <div class="details">
+                    <p><strong>Room Type:</strong> Broadmoor West Premier (550 sq. ft.)</p>
+                    <p><strong>Note:</strong> Please confirm the exact check-in/out dates with your confirmation email.</p>
+                    <p><a href="https://www.broadmoor.com/accommodations" target="_blank">View Broadmoor Accommodations →</a></p>
+                </div>
             </div>
         </div>
 
-        <h2 class="section-title">
-            🍽️ Confirmed Dining Reservations
-        </h2>
+        <!-- Dining Reservations Section -->
+        <h2 class="section-title">🍽️ Confirmed Dining Reservations</h2>
 
         <div class="activity-card">
-            <img src="./image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room Setup">
+            <img src="image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room">
             <div class="activity-content">
-                <h3>Lake Terrace Dining Room (Sunday Brunch)</h3>
+                <h3>Lake Terrace Dining Room</h3>
                 <p><strong>Date:</strong> Sunday, December 14, 2025 | <strong>Time:</strong> 9:00 AM</p>
-                <p class="details">
-                    **Confirmation:** d0581a4a88d<br>
-                    **Guests:** 1 (Please confirm size)<br>
-                    **Details:** Extensive buffet menu with piano music and views of the lake.
-                </p>
+                <div class="details">
+                    <p><strong>Confirmation:</strong> d0581a4a88d</p>
+                    <p><strong>Guests:</strong> 1 (Please confirm size)</p>
+                    <p><strong>Details:</strong> Extensive Sunday brunch buffet with piano music and beautiful views of Cheyenne Lake. An elegant start to your holiday celebration.</p>
+                </div>
             </div>
         </div>
-        
+
         <div class="activity-card">
-            <img src="./image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago Interior">
+            <img src="image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago">
             <div class="activity-content">
-                <h3>Ristorante Del Lago (Italian)</h3>
+                <h3>Ristorante Del Lago</h3>
                 <p><strong>Date:</strong> Monday, December 15, 2025 | <strong>Time:</strong> 6:30 PM</p>
-                <p class="details">
-                    **Confirmation:** 38cfla4aa7c<br>
-                    **Guests:** 2<br>
-                    **Details:** Authentic Italian cuisine, wood-fired pizza, overlooking Cheyenne Lake.
-                </p>
+                <div class="details">
+                    <p><strong>Confirmation:</strong> 38cfla4aa7c</p>
+                    <p><strong>Guests:</strong> 2</p>
+                    <p><strong>Details:</strong> Authentic Italian cuisine featuring wood-fired pizza, fresh pasta, and exquisite wines, all while overlooking the serene beauty of Cheyenne Lake.</p>
+                </div>
             </div>
         </div>
 
         <div class="activity-card">
-            <img src="./image_b25262.png" class="activity-card-image" alt="The Penrose Room Interior">
+            <img src="image_b25262.png" class="activity-card-image" alt="The Penrose Room">
             <div class="activity-content">
-                <h3>The Penrose Room (Elegant Fine Dining)</h3>
+                <h3>The Penrose Room</h3>
                 <p><strong>Date:</strong> Tuesday, December 16, 2025 | <strong>Time:</strong> 6:00 PM</p>
-                <p class="details">
-                    **Confirmation:** 50bd1a4aa3b<br>
-                    **Guests:** 2<br>
-                    **Notes:** Elevated service and extraordinary views. Elegant attire required.
-                </p>
-            </div>
-        </div>
-        
-        <div class="activity-card">
-            <img src="./image_b25200.png" class="activity-card-image" alt="La Taverne Bar Area">
-            <div class="activity-content">
-                <h3>La Taverne (Steakhouse)</h3>
-                <p><strong>Date:</strong> Wednesday, December 17, 2025 | <strong>Time:</strong> 11:00 AM</p>
-                <p class="details">
-                    **Confirmation:** 43851a4aafb<br>
-                    **Guests:** 2<br>
-                    **Details:** Hand-cut prime steaks and an extensive wine list.
-                </p>
+                <div class="details">
+                    <p><strong>Confirmation:</strong> 50bd1a4aa3b</p>
+                    <p><strong>Guests:</strong> 2</p>
+                    <p><strong>Details:</strong> The pinnacle of fine dining at The Broadmoor. Elevated service, extraordinary Rocky Mountain views, and an unforgettable culinary experience.</p>
+                    <p><strong>Dress Code:</strong> Elegant attire required</p>
+                </div>
             </div>
         </div>
 
-        <h2 class="section-title">
-            🌟 Other Holiday Fun
-        </h2>
-        
         <div class="activity-card">
+            <img src="image_b25200.png" class="activity-card-image" alt="La Taverne">
             <div class="activity-content">
-                <h3>Explore The Broadmoor's Holiday Offerings</h3>
-                <p><strong>Dates:</strong> Throughout our stay!</p>
-                <p class="details">
-                    <a href="https://www.broadmoor.com/holidays" target="_blank">View Broadmoor Holiday Events & Activities</a>
-                </p>
+                <h3>La Taverne</h3>
+                <p><strong>Date:</strong> Wednesday, December 17, 2025 | <strong>Time:</strong> 11:00 AM</p>
+                <div class="details">
+                    <p><strong>Confirmation:</strong> 43851a4aafb</p>
+                    <p><strong>Guests:</strong> 2</p>
+                    <p><strong>Details:</strong> A classic steakhouse experience featuring hand-cut prime steaks, fresh seafood, and an extensive wine collection in an elegant European-inspired setting.</p>
+                </div>
             </div>
         </div>
-        
+
+        <!-- Holiday Activities Section -->
+        <h2 class="section-title">🌟 Holiday Activities & Experiences</h2>
+
         <div class="activity-card">
-            <img src="./image_b252bb.png" class="activity-card-image" alt="Broadmoor Festive Lobby">
             <div class="activity-content">
-                <h3>Relax in the Grand Lobby</h3>
-                <p>Enjoy the cozy fireplaces and holiday ambiance.</p>
-                <p class="details">
-                    The perfect spot to enjoy some quiet time together.
-                </p>
+                <h3>The Broadmoor's Holiday Offerings</h3>
+                <p><strong>Throughout Your Stay</strong></p>
+                <div class="details">
+                    <p>Explore the resort's festive decorations, visit the gingerbread village, enjoy carolers, and discover special holiday events and activities.</p>
+                    <p><a href="https://www.broadmoor.com/holidays" target="_blank">View Complete Holiday Schedule →</a></p>
+                </div>
             </div>
+        </div>
+
+        <div class="activity-card">
+            <img src="image_b252bb.png" class="activity-card-image" alt="Broadmoor Grand Lobby">
+            <div class="activity-content">
+                <h3>The Grand Lobby Experience</h3>
+                <p><strong>Available Daily</strong></p>
+                <div class="details">
+                    <p>Relax by the cozy fireplaces surrounded by magnificent holiday decorations. Enjoy afternoon tea, live piano music, and the warm ambiance of this historic luxury resort.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Message -->
+        <div class="footer-decoration">
+            ❄ Wishing you a magical Christmas celebration at The Broadmoor ❄
         </div>
 
     </div>
 
     <script>
-        const snowContainer = document.createElement('div');
-        snowContainer.className = 'snow-container';
-        document.body.appendChild(snowContainer);
+        // Music Player Functionality
+        let isPlaying = false;
+        const audio = document.getElementById('christmasAudio');
+        const musicText = document.getElementById('musicText');
 
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicText.textContent = 'Play Holiday Music';
+                isPlaying = false;
+            } else {
+                audio.play();
+                musicText.textContent = 'Pause Music';
+                isPlaying = true;
+            }
+        }
+
+        // Snowfall Effect
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
-            snowContainer.appendChild(snowflake);
-
-            const size = Math.random() * 5 + 2; 
-            snowflake.style.width = size + 'px';
-            snowflake.style.height = size + 'px';
+            snowflake.textContent = '❄';
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-            snowflake.style.opacity = Math.random() * 0.7 + 0.3; 
+            snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+            document.body.appendChild(snowflake);
 
-            snowflake.addEventListener('animationend', () => {
+            setTimeout(() => {
                 snowflake.remove();
-                createSnowflake(); 
-            });
+            }, 10000);
         }
 
-        for (let i = 0; i < 50; i++) { 
-            createSnowflake();
+        // Create snowflakes continuously
+        setInterval(createSnowflake, 300);
+
+        // Initial snowflakes
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 200);
         }
     </script>
 
