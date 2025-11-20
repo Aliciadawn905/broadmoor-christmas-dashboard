@@ -23,39 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Subtle background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px, 90px 90px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Gold sparkles effect */
-        .sparkle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: radial-gradient(circle, #d4af37 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: sparkle-twinkle 3s ease-in-out infinite;
-            z-index: 999;
-        }
-
-        @keyframes sparkle-twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
         /* Music Player Button */
         .music-player {
             position: fixed;
@@ -84,10 +51,6 @@
             transform: translateY(-2px);
         }
 
-        .music-icon {
-            font-size: 20px;
-        }
-
         /* Festive garland border at top */
         .garland-border {
             position: fixed;
@@ -102,42 +65,10 @@
                 #8b1a1a 25px,
                 #8b1a1a 50px,
                 #0f4d0f 50px,
-                #0f4d0f 75px,
-                #d4af37 75px,
-                #d4af37 100px
+                #0f4d0f 75px
             );
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
             z-index: 1001;
-        }
-
-        /* Corner pine branches */
-        .pine-corner {
-            position: fixed;
-            width: 200px;
-            height: 200px;
-            pointer-events: none;
-            z-index: 998;
-            opacity: 0.4;
-        }
-
-        .pine-corner.top-left {
-            top: 12px;
-            left: 0;
-            background: 
-                radial-gradient(ellipse at 20% 30%, #0f4d0f 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 20%, #1a5c1a 0%, transparent 40%),
-                radial-gradient(circle at 10% 10%, #d4af37 0%, transparent 15%),
-                radial-gradient(circle at 35% 15%, #d4af37 0%, transparent 12%);
-        }
-
-        .pine-corner.top-right {
-            top: 12px;
-            right: 0;
-            background: 
-                radial-gradient(ellipse at 80% 30%, #0f4d0f 0%, transparent 50%),
-                radial-gradient(ellipse at 60% 20%, #1a5c1a 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, #d4af37 0%, transparent 15%),
-                radial-gradient(circle at 65% 15%, #d4af37 0%, transparent 12%);
         }
 
         /* Hero Section */
@@ -168,68 +99,6 @@
             50% { transform: rotate(3deg); }
         }
 
-        /* Holly decoration on the T */
-        .holly-decoration {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            z-index: 10;
-        }
-
-        .holly-leaf {
-            position: absolute;
-            width: 30px;
-            height: 20px;
-            background: #0f4d0f;
-            border-radius: 0 50% 0 50%;
-        }
-
-        .holly-leaf:nth-child(1) {
-            top: 15px;
-            left: 10px;
-            transform: rotate(-45deg);
-        }
-
-        .holly-leaf:nth-child(2) {
-            top: 15px;
-            right: 10px;
-            transform: rotate(45deg);
-        }
-
-        .holly-berry {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: radial-gradient(circle, #cc0000 30%, #8b0000 100%);
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .holly-berry:nth-child(3) {
-            top: 25px;
-            left: 25px;
-        }
-
-        .holly-berry:nth-child(4) {
-            top: 25px;
-            right: 25px;
-        }
-
-        .pinecone {
-            position: absolute;
-            width: 16px;
-            height: 20px;
-            background: linear-gradient(135deg, #8b6914 0%, #5d4610 100%);
-            border-radius: 40% 40% 50% 50%;
-            top: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
         /* Main Title Section */
         .main-title {
             text-align: center;
@@ -240,6 +109,23 @@
         .title-container {
             position: relative;
             display: inline-block;
+        }
+
+        /* Holly decoration - now using image */
+        .holly-decoration {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
+            z-index: 10;
+        }
+
+        .holly-decoration img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
         .main-title h1 {
@@ -254,7 +140,7 @@
             z-index: 5;
         }
 
-        /* Nutcracker bookends */
+        /* Nutcracker bookends - using actual image */
         .nutcracker {
             position: absolute;
             width: 130px;
@@ -263,7 +149,6 @@
             transform: translateY(-50%);
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
             z-index: 4;
-            background: transparent;
         }
 
         .nutcracker-left {
@@ -277,8 +162,6 @@
         .nutcracker img {
             width: 100%;
             height: auto;
-            background: transparent;
-            mix-blend-mode: darken;
         }
 
         .main-title h2 {
@@ -379,7 +262,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        /* Ribbon bow decoration */
         .section-title::after {
             content: '';
             position: absolute;
@@ -388,38 +270,18 @@
             transform: translateX(-50%);
             width: 40px;
             height: 40px;
-            background: 
-                linear-gradient(135deg, #8b1a1a 0%, #660000 50%, #8b1a1a 100%);
-            clip-path: polygon(
-                50% 0%, 
-                100% 25%, 
-                100% 75%, 
-                50% 100%, 
-                0% 75%, 
-                0% 25%
-            );
+            background: linear-gradient(135deg, #8b1a1a 0%, #660000 50%, #8b1a1a 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
 
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -15px;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 30px;
-            background: linear-gradient(90deg, transparent 0%, #d4af37 20%, #d4af37 80%, transparent 100%);
-            z-index: -1;
-        }
-
-        /* Activity Cards with candlelight glow */
+        /* Activity Cards */
         .activity-card {
             background: linear-gradient(135deg, #f5f5dc 0%, #e8dcc0 100%);
             border: 2px solid #8b1a1a;
             border-radius: 15px;
             margin: 30px 0;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 
                 0 8px 25px rgba(0, 0, 0, 0.4),
                 0 0 30px rgba(212, 175, 55, 0.15);
@@ -427,26 +289,31 @@
             position: relative;
         }
 
-        .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(
-                circle at 50% 0%,
-                rgba(212, 175, 55, 0.1) 0%,
-                transparent 60%
-            );
-            pointer-events: none;
-        }
-
         .activity-card:hover {
             transform: translateY(-5px);
             box-shadow: 
                 0 12px 35px rgba(0, 0, 0, 0.5),
                 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Garland draped on top of cards */
+        .garland-drape {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 100px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .garland-drape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
         }
 
         .activity-card-image {
@@ -502,16 +369,15 @@
             border-bottom-color: #8b1a1a;
         }
 
-        /* Elegant White Snowflakes */
+        /* Snowflakes - VISIBLE */
         .snowflake {
             position: fixed;
             color: #ffffff;
-            font-size: 2em;
+            font-size: 2.5em;
             pointer-events: none;
-            animation: snowfall linear infinite;
-            z-index: 997;
+            z-index: 9999;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            opacity: 0.9;
+            animation: snowfall linear forwards;
         }
 
         @keyframes snowfall {
@@ -529,114 +395,6 @@
                 transform: translateY(110vh) rotate(360deg);
                 opacity: 0;
             }
-        }
-
-        /* Realistic Pine Garland Divider */
-        .pine-divider {
-            width: 100%;
-            height: 100px;
-            margin: 40px 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Main pine branch garland */
-        .pine-divider::before {
-            content: '';
-            position: absolute;
-            width: 80%;
-            height: 40px;
-            background: 
-                /* Pine needles clusters */
-                radial-gradient(ellipse 80px 30px at 10%, #1a5c1a 0%, transparent 50%),
-                radial-gradient(ellipse 90px 35px at 15%, #0f4d0f 0%, transparent 55%),
-                radial-gradient(ellipse 85px 32px at 25%, #1a5c1a 0%, transparent 50%),
-                radial-gradient(ellipse 95px 38px at 35%, #0f4d0f 0%, transparent 55%),
-                radial-gradient(ellipse 100px 40px at 50%, #1a5c1a 0%, transparent 60%),
-                radial-gradient(ellipse 95px 38px at 65%, #0f4d0f 0%, transparent 55%),
-                radial-gradient(ellipse 85px 32px at 75%, #1a5c1a 0%, transparent 50%),
-                radial-gradient(ellipse 90px 35px at 85%, #0f4d0f 0%, transparent 55%),
-                radial-gradient(ellipse 80px 30px at 90%, #1a5c1a 0%, transparent 50%);
-            filter: blur(1px) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        }
-
-        /* Pinecone in center */
-        .pine-divider::after {
-            content: '';
-            position: absolute;
-            width: 45px;
-            height: 60px;
-            background: 
-                /* Pinecone scales pattern */
-                radial-gradient(ellipse at 50% 20%, #8b6914 0%, #5d4610 40%, transparent 60%),
-                radial-gradient(ellipse at 35% 35%, #6b5320 0%, #5d4610 40%, transparent 50%),
-                radial-gradient(ellipse at 65% 35%, #6b5320 0%, #5d4610 40%, transparent 50%),
-                radial-gradient(ellipse at 25% 50%, #8b6914 0%, #5d4610 35%, transparent 45%),
-                radial-gradient(ellipse at 75% 50%, #8b6914 0%, #5d4610 35%, transparent 45%),
-                radial-gradient(ellipse at 50% 50%, #6b5320 0%, #5d4610 40%, transparent 50%),
-                radial-gradient(ellipse at 35% 65%, #8b6914 0%, #5d4610 35%, transparent 45%),
-                radial-gradient(ellipse at 65% 65%, #8b6914 0%, #5d4610 35%, transparent 45%),
-                radial-gradient(ellipse at 50% 80%, #6b5320 0%, #5d4610 40%, transparent 50%);
-            border-radius: 45% 45% 50% 50%;
-            box-shadow: 
-                inset 0 2px 8px rgba(0, 0, 0, 0.4),
-                0 4px 12px rgba(0, 0, 0, 0.5);
-            z-index: 2;
-        }
-
-        /* Additional pine needle details */
-        .pine-needles {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(ellipse, #0f4d0f 20%, #1a5c1a 40%, transparent 65%);
-            border-radius: 50%;
-            opacity: 0.7;
-            filter: blur(2px);
-        }
-
-        .pine-needles:nth-child(1) { 
-            left: 12%; 
-            top: -5px;
-            width: 70px;
-            height: 50px;
-        }
-        .pine-needles:nth-child(2) { 
-            left: 28%; 
-            top: -8px; 
-            width: 65px;
-            height: 55px;
-        }
-        .pine-needles:nth-child(3) { 
-            right: 28%; 
-            top: -8px; 
-            width: 65px;
-            height: 55px;
-        }
-        .pine-needles:nth-child(4) { 
-            right: 12%; 
-            top: -5px;
-            width: 70px;
-            height: 50px;
-        }
-
-        /* Small pinecones scattered */
-        .pine-divider .pine-needles::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 35px;
-            background: 
-                radial-gradient(ellipse at 50% 30%, #8b6914 0%, #5d4610 50%, transparent 70%),
-                radial-gradient(ellipse at 50% 70%, #6b5320 0%, #5d4610 50%, transparent 70%);
-            border-radius: 45% 45% 50% 50%;
-            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-15deg);
         }
 
         /* Footer decoration */
@@ -699,13 +457,12 @@
                 font-size: 14px;
             }
 
-            .pine-corner {
-                width: 120px;
-                height: 120px;
-            }
-
             .ornament-logo img {
                 max-width: 120px;
+            }
+
+            .garland-drape {
+                display: none;
             }
         }
     </style>
@@ -715,18 +472,15 @@
     <!-- Festive Garland Border -->
     <div class="garland-border"></div>
 
-    <!-- Pine Corner Decorations -->
-    <div class="pine-corner top-left"></div>
-    <div class="pine-corner top-right"></div>
-
     <!-- Music Player -->
     <button class="music-player" id="musicPlayer" onclick="toggleMusic()">
-        <span class="music-icon">♪</span>
+        <span>♪</span>
         <span id="musicText">Play Holiday Music</span>
     </button>
 
-    <audio id="christmasAudio" loop>
+    <audio id="christmasAudio" loop preload="auto">
         <source src="Christmas.mp3" type="audio/mpeg">
+        <source src="Christmas.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -737,24 +491,20 @@
         </div>
         <div class="main-title">
             <div class="title-container">
-                <!-- Holly decoration -->
+                <!-- Holly decoration using uploaded image -->
                 <div class="holly-decoration">
-                    <div class="holly-leaf"></div>
-                    <div class="holly-leaf"></div>
-                    <div class="holly-berry"></div>
-                    <div class="holly-berry"></div>
-                    <div class="pinecone"></div>
+                    <img src="holly.png" alt="Holiday Holly">
                 </div>
                 
-                <!-- Nutcracker Bookends -->
+                <!-- Nutcracker Bookends using uploaded image -->
                 <div class="nutcracker nutcracker-left">
-                    <img src="nutcracker.png" alt="Nutcracker Guard">
+                    <img src="Nutcracker2.png" alt="Nutcracker Guard">
                 </div>
                 
                 <h1>THE BROADMOOR</h1>
                 
                 <div class="nutcracker nutcracker-right">
-                    <img src="nutcracker.png" alt="Nutcracker Guard">
+                    <img src="Nutcracker2.png" alt="Nutcracker Guard">
                 </div>
             </div>
             <h2>Colorado Springs</h2>
@@ -790,7 +540,11 @@
         <!-- Dining Reservations Section -->
         <h2 class="section-title">Confirmed Dining Reservations</h2>
 
-        <div class="activity-card">
+        <div class="activity-card" style="position: relative;">
+            <!-- Garland draped on top -->
+            <div class="garland-drape">
+                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+            </div>
             <img src="image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room">
             <div class="activity-content">
                 <h3>Lake Terrace Dining Room</h3>
@@ -804,15 +558,10 @@
             </div>
         </div>
 
-        <!-- Pine Garland Divider -->
-        <div class="pine-divider">
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-        </div>
-
-        <div class="activity-card">
+        <div class="activity-card" style="position: relative;">
+            <div class="garland-drape">
+                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+            </div>
             <img src="image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago">
             <div class="activity-content">
                 <h3>Ristorante Del Lago</h3>
@@ -826,15 +575,10 @@
             </div>
         </div>
 
-        <!-- Pine Garland Divider -->
-        <div class="pine-divider">
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-        </div>
-
-        <div class="activity-card">
+        <div class="activity-card" style="position: relative;">
+            <div class="garland-drape">
+                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+            </div>
             <img src="image_b25262.png" class="activity-card-image" alt="The Penrose Room">
             <div class="activity-content">
                 <h3>The Penrose Room</h3>
@@ -849,15 +593,10 @@
             </div>
         </div>
 
-        <!-- Pine Garland Divider -->
-        <div class="pine-divider">
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-            <div class="pine-needles"></div>
-        </div>
-
-        <div class="activity-card">
+        <div class="activity-card" style="position: relative;">
+            <div class="garland-drape">
+                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+            </div>
             <img src="image_b25200.png" class="activity-card-image" alt="La Taverne">
             <div class="activity-content">
                 <h3>La Taverne</h3>
@@ -904,202 +643,105 @@
     </div>
 
     <script>
-        console.log('=== MUSIC PLAYER INITIALIZATION ===');
+        console.log('==========================================');
+        console.log('🎄 BROADMOOR CHRISTMAS DASHBOARD LOADED 🎄');
+        console.log('==========================================');
         
-        // Music Player Functionality
+        // SNOWFALL INITIALIZATION
+        console.log('\n--- SNOWFALL SYSTEM ---');
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            const symbols = ['❄', '❅', '❆', '✻', '✼', '❊'];
+            snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = (Math.random() * 12 + 10) + 's';
+            snowflake.style.fontSize = (Math.random() * 1.5 + 2) + 'em';
+            document.body.appendChild(snowflake);
+            setTimeout(() => {
+                if (snowflake && snowflake.parentNode) {
+                    snowflake.remove();
+                }
+            }, 22000);
+        }
+        
+        // Create initial snowflakes
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createSnowflake, i * 200);
+        }
+        setInterval(createSnowflake, 600);
+        console.log('✓ Snowfall system active');
+
+        // MUSIC PLAYER INITIALIZATION
+        console.log('\n--- MUSIC PLAYER ---');
         let isPlaying = false;
         const audio = document.getElementById('christmasAudio');
         const musicText = document.getElementById('musicText');
         const musicButton = document.getElementById('musicPlayer');
 
         console.log('Audio element:', audio);
-        console.log('Audio src:', audio ? audio.src : 'Audio element not found');
-        console.log('Current URL:', window.location.href);
-        
-        // Check if audio element exists
-        if (!audio) {
-            console.error('ERROR: Audio element not found!');
-        } else {
-            console.log('Audio element found successfully');
-            
-            // Log audio properties
-            console.log('Audio readyState:', audio.readyState);
-            console.log('Audio networkState:', audio.networkState);
-            
-            // Check if audio file can be loaded
-            audio.addEventListener('loadstart', function() {
-                console.log('Audio loading started...');
+        console.log('Audio source:', audio ? audio.querySelector('source')?.src : 'N/A');
+        console.log('Page URL:', window.location.href);
+
+        if (audio) {
+            audio.addEventListener('loadeddata', () => {
+                console.log('✓ Audio file loaded successfully!');
             });
             
-            audio.addEventListener('loadeddata', function() {
-                console.log('✓ Audio data loaded successfully!');
+            audio.addEventListener('error', (e) => {
+                console.error('❌ AUDIO ERROR:');
+                console.error('  Error code:', audio.error?.code);
+                console.error('  Error type:', audio.error?.message);
+                console.error('  Expected file: Christmas.mp3');
+                console.error('  \nTROUBLESHOOTING:');
+                console.error('  1. File must be named exactly: Christmas.mp3');
+                console.error('  2. File must be in same folder as index.html');
+                console.error('  3. Check GitHub repository for the file');
+                alert('❌ Music file not found!\n\nMake sure Christmas.mp3 is uploaded to your GitHub repository in the same folder as index.html.');
             });
             
-            audio.addEventListener('canplay', function() {
-                console.log('✓ Audio is ready to play!');
-            });
-            
-            audio.addEventListener('error', function(e) {
-                console.error('❌ AUDIO ERROR:', e);
-                console.error('Error code:', audio.error ? audio.error.code : 'unknown');
-                console.error('Error message:', audio.error ? audio.error.message : 'unknown');
-                
-                let errorMsg = 'Music file not found. ';
-                if (audio.error) {
-                    switch(audio.error.code) {
-                        case 1:
-                            errorMsg += 'Loading aborted';
-                            break;
-                        case 2:
-                            errorMsg += 'Network error';
-                            break;
-                        case 3:
-                            errorMsg += 'Decoding failed';
-                            break;
-                        case 4:
-                            errorMsg += 'File format not supported or file not found';
-                            break;
-                    }
-                }
-                
-                musicText.textContent = 'Music Unavailable';
-                musicButton.style.opacity = '0.5';
-                alert(errorMsg + '\n\nMake sure Christmas.mp3 is in the same folder as index.html');
-            });
-            
-            // Attempt to load the audio
-            console.log('Attempting to load audio file...');
+            console.log('Loading audio file...');
             audio.load();
+        } else {
+            console.error('❌ Audio element not found in DOM');
         }
 
         function toggleMusic() {
-            console.log('=== TOGGLE MUSIC CLICKED ===');
-            console.log('Is currently playing:', isPlaying);
-            
-            if (!audio) {
-                console.error('Cannot play: audio element not found');
-                alert('Audio player not initialized');
-                return;
-            }
+            console.log('\n--- MUSIC TOGGLE ---');
+            console.log('Button clicked. Currently playing:', isPlaying);
             
             if (isPlaying) {
-                console.log('Pausing music...');
                 audio.pause();
                 musicText.textContent = 'Play Holiday Music';
                 isPlaying = false;
                 console.log('Music paused');
             } else {
-                console.log('Attempting to play music...');
-                console.log('Audio readyState before play:', audio.readyState);
-                
-                // Try to play the audio
+                console.log('Attempting to play...');
                 const playPromise = audio.play();
                 
                 if (playPromise !== undefined) {
                     playPromise
-                        .then(function() {
-                            // Audio is playing successfully
-                            console.log('✓✓✓ MUSIC PLAYING SUCCESSFULLY! ✓✓✓');
+                        .then(() => {
+                            console.log('✓✓✓ MUSIC IS PLAYING! ✓✓✓');
                             musicText.textContent = 'Pause Music';
                             isPlaying = true;
                         })
-                        .catch(function(error) {
-                            // Auto-play was prevented or another error occurred
-                            console.error('❌ PLAYBACK ERROR:', error);
-                            console.error('Error name:', error.name);
-                            console.error('Error message:', error.message);
-                            
-                            let alertMsg = 'Cannot play music:\n\n';
-                            
+                        .catch((error) => {
+                            console.error('❌ Playback failed:', error.name, error.message);
                             if (error.name === 'NotSupportedError') {
-                                alertMsg += 'Audio format not supported or file not found.\n';
-                                alertMsg += 'Make sure Christmas.mp3 exists in your GitHub repository.';
-                            } else if (error.name === 'NotAllowedError') {
-                                alertMsg += 'Browser blocked autoplay.\n';
-                                alertMsg += 'This is normal - just click the button again!';
+                                alert('❌ Audio file not supported or not found.\n\nCheck that Christmas.mp3 exists in your repository.');
                             } else {
-                                alertMsg += error.message;
+                                alert('Cannot play music: ' + error.message);
                             }
-                            
-                            alert(alertMsg);
                             musicText.textContent = 'Play Holiday Music';
                             isPlaying = false;
                         });
-                } else {
-                    console.warn('Play promise is undefined');
                 }
             }
         }
-        
-        console.log('Music player initialization complete');
-        console.log('================================\n');
 
-        // Enhanced Snowfall Effect
-        console.log('Starting snowfall effect...');
-        
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            
-            // Variety of snowflake symbols
-            const symbols = ['❄', '❅', '❆', '✻', '✼'];
-            snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            
-            // Random horizontal position
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            
-            // Random animation duration (slower = more elegant)
-            const duration = (Math.random() * 10 + 10) + 's';
-            snowflake.style.animationDuration = duration;
-            
-            // Random size
-            const size = (Math.random() * 1.5 + 1.5) + 'em';
-            snowflake.style.fontSize = size;
-            
-            // Opacity
-            snowflake.style.opacity = Math.random() * 0.4 + 0.6;
-            
-            document.body.appendChild(snowflake);
-            
-            // Remove after animation completes
-            setTimeout(() => {
-                if (snowflake && snowflake.parentNode) {
-                    snowflake.remove();
-                }
-            }, parseFloat(duration) * 1000);
-        }
-
-        // Create initial batch of snowflakes
-        console.log('Creating initial snowflakes...');
-        for (let i = 0; i < 30; i++) {
-            setTimeout(() => createSnowflake(), i * 200);
-        }
-
-        // Create new snowflakes continuously
-        setInterval(createSnowflake, 500);
-        console.log('Snowfall effect initialized');
-
-        // Gold Sparkles Effect
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.animationDelay = Math.random() * 3 + 's';
-            document.body.appendChild(sparkle);
-
-            setTimeout(() => {
-                sparkle.remove();
-            }, 6000);
-        }
-
-        // Create sparkles periodically
-        setInterval(createSparkle, 800);
-
-        // Initial sparkles
-        for (let i = 0; i < 15; i++) {
-            setTimeout(createSparkle, i * 500);
-        }
+        console.log('\n✓ All systems initialized');
+        console.log('==========================================\n');
     </script>
 
 </body>
