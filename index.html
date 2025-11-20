@@ -6,6 +6,30 @@
     <title>🎄 Our Broadmoor Christmas Itinerary 🎁</title>
     <style>
         /* CSS for the Festive Look */
+        /* Snow effect CSS */
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allows clicks through the snow */
+            z-index: 1000; /* Ensures snow is on top */
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
         body {
             font-family: 'Georgia', serif; /* Elegant font */
             background-color: #f7f7f7; /* Light background */
@@ -66,7 +90,18 @@
             transition: transform 0.2s;
             overflow: hidden; /* Contains the image */
         }
-
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            /* Added festive background */
+            background-image: url('https://i.imgur.com/k6lP09L.png'); /* Pine tree border image */
+            background-repeat: repeat-y; /* Repeat vertically */
+            background-position: left top; /* Position at the top left */
+            background-size: 50px auto; /* Size of the tree image */
+            padding-left: 70px; /* Make space for the trees */
+        }
         .activity-card:hover {
             transform: translateY(-5px); /* Lift effect on hover */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -112,7 +147,7 @@
 <body>
 
     <div class="header">
-        <img src="./image_b2563d.jpg" alt="The Broadmoor decorated with Christmas lights">
+        <img src="./image_b2563d.png" alt="The Broadmoor decorated with Christmas lights">
         <h1>🎄 Our Christmas <span>Itinerary</span> 🎁</h1>
         <p style="font-size: 0.5em; margin-top: 5px; padding-bottom: 30px;">at The Broadmoor, CO Springs</p>
     </div>
@@ -122,7 +157,7 @@
         <h2 class="section-title">🏨 Accommodation</h2>
 
         <div class="activity-card">
-            <img src="./image_b255e4.jpg" class="activity-card-image" alt="Broadmoor West Premier Room">
+            <img src="./image_b255e4.png" class="activity-card-image" alt="Broadmoor West Premier Room">
             <div class="activity-content">
                 <h3>BROADMOOR WEST PREMIER</h3>
                 <p><strong>Check-in:</strong> Dec 14th, 2025 | <strong>Check-out:</strong> Dec 18th, 2025*</p>
@@ -137,7 +172,7 @@
         <h2 class="section-title">🍽️ Confirmed Dining Reservations</h2>
 
         <div class="activity-card">
-            <img src="./image_b252bb.jpg" class="activity-card-image" alt="Lake Terrace Dining Room Setup">
+            <img src="./image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room Setup">
             <div class="activity-content">
                 <h3>🍽️ Lake Terrace Dining Room (Sunday Brunch)</h3>
                 <p><strong>Date:</strong> Sunday, December 14, 2025 | <strong>Time:</strong> 9:00 AM</p>
@@ -150,7 +185,7 @@
         </div>
         
         <div class="activity-card">
-            <img src="./image_b24f1d.jpg" class="activity-card-image" alt="Ristorante Del Lago Interior">
+            <img src="./image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago Interior">
             <div class="activity-content">
                 <h3>🍽️ Ristorante Del Lago (Italian)</h3>
                 <p><strong>Date:</strong> Monday, December 15, 2025 | <strong>Time:</strong> 6:30 PM</p>
@@ -176,7 +211,7 @@
         </div>
         
         <div class="activity-card">
-            <img src="./image_b25200.jpg" class="activity-card-image" alt="La Taverne Bar Area">
+            <img src="./image_b25200.png" class="activity-card-image" alt="La Taverne Bar Area">
             <div class="activity-content">
                 <h3>🍽️ La Taverne (Steakhouse)</h3>
                 <p><strong>Date:</strong> Wednesday, December 17, 2025 | <strong>Time:</strong> 11:00 AM</p>
@@ -202,6 +237,34 @@
         </div>
 
     </div>
+<script>
+        // JavaScript for falling snow
+        const snowContainer = document.createElement('div');
+        snowContainer.className = 'snow-container';
+        document.body.appendChild(snowContainer);
 
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowContainer.appendChild(snowflake);
+
+            const size = Math.random() * 5 + 2; // Size between 2px and 7px
+            snowflake.style.width = size + 'px';
+            snowflake.style.height = size + 'px';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Fall speed between 5-10s
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3; // Opacity between 0.3-1
+
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+                createSnowflake(); // Continuously create new snowflakes
+            });
+        }
+
+        for (let i = 0; i < 50; i++) { // Generate 50 snowflakes
+            createSnowflake();
+        }
+    </script>
+    
 </body>
 </html>
