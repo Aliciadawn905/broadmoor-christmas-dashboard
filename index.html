@@ -257,24 +257,23 @@
         /* Nutcracker bookends */
         .nutcracker {
             position: absolute;
-            width: 120px;
+            width: 100px;
             height: auto;
             top: 50%;
             transform: translateY(-50%);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
             z-index: 4;
         }
 
         .nutcracker-left {
-            left: -150px;
+            left: -130px;
         }
 
         .nutcracker-right {
-            right: -150px;
+            right: -130px;
         }
 
-        /* Nutcracker SVG design */
-        .nutcracker svg {
+        .nutcracker img {
             width: 100%;
             height: auto;
         }
@@ -500,27 +499,93 @@
             border-bottom-color: #8b1a1a;
         }
 
-        /* Elegant Snowflakes */
+        /* Elegant White Snowflakes */
         .snowflake {
             position: fixed;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.5em;
+            color: #ffffff;
+            font-size: 2em;
             pointer-events: none;
             animation: snowfall linear infinite;
             z-index: 997;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            opacity: 0.9;
         }
 
         @keyframes snowfall {
             0% {
                 transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
                 opacity: 1;
             }
             100% {
                 transform: translateY(110vh) rotate(360deg);
-                opacity: 0.3;
+                opacity: 0;
             }
         }
+
+        /* Pine Garland Divider */
+        .pine-divider {
+            width: 100%;
+            height: 80px;
+            margin: 40px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pine-divider::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    #0f4d0f 0px,
+                    #1a5c1a 10px,
+                    #0f4d0f 20px,
+                    #1a5c1a 30px,
+                    #0f4d0f 40px
+                );
+            border-radius: 10px;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .pine-divider::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: 
+                radial-gradient(ellipse at center, #8b6914 0%, #5d4610 50%, transparent 50%),
+                radial-gradient(ellipse at 30% 40%, #6b5320 0%, transparent 30%),
+                radial-gradient(ellipse at 70% 40%, #6b5320 0%, transparent 30%);
+            border-radius: 50% 50% 55% 55%;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+            z-index: 2;
+        }
+
+        .pine-needles {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(ellipse, #0f4d0f 30%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .pine-needles:nth-child(1) { left: 20%; top: -10px; }
+        .pine-needles:nth-child(2) { left: 35%; top: -15px; }
+        .pine-needles:nth-child(3) { right: 35%; top: -15px; }
+        .pine-needles:nth-child(4) { right: 20%; top: -10px; }
 
         /* Footer decoration */
         .footer-decoration {
@@ -536,13 +601,13 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .nutcracker {
-                width: 100px;
+                width: 80px;
             }
             .nutcracker-left {
-                left: -120px;
+                left: -100px;
             }
             .nutcracker-right {
-                right: -120px;
+                right: -100px;
             }
         }
 
@@ -631,121 +696,13 @@
                 
                 <!-- Nutcracker Bookends -->
                 <div class="nutcracker nutcracker-left">
-                    <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Hat -->
-                        <rect x="25" y="10" width="50" height="15" fill="#1a1a1a"/>
-                        <circle cx="50" cy="10" r="20" fill="#cc0000"/>
-                        <rect x="30" y="22" width="40" height="3" fill="#d4af37"/>
-                        
-                        <!-- Head -->
-                        <rect x="30" y="25" width="40" height="35" rx="5" fill="#f0d5a8"/>
-                        
-                        <!-- Eyes -->
-                        <circle cx="40" cy="35" r="3" fill="#2c3e50"/>
-                        <circle cx="60" cy="35" r="3" fill="#2c3e50"/>
-                        
-                        <!-- Mustache -->
-                        <ellipse cx="35" cy="48" rx="8" ry="3" fill="#1a1a1a"/>
-                        <ellipse cx="65" cy="48" rx="8" ry="3" fill="#1a1a1a"/>
-                        
-                        <!-- Mouth -->
-                        <rect x="42" y="50" width="16" height="8" fill="#1a1a1a"/>
-                        <rect x="43" y="51" width="3" height="6" fill="#fff"/>
-                        <rect x="48" y="51" width="3" height="6" fill="#fff"/>
-                        <rect x="53" y="51" width="3" height="6" fill="#fff"/>
-                        
-                        <!-- Body - Red Jacket -->
-                        <rect x="25" y="60" width="50" height="60" rx="5" fill="#cc0000"/>
-                        
-                        <!-- Gold Buttons -->
-                        <circle cx="50" cy="75" r="4" fill="#d4af37"/>
-                        <circle cx="50" cy="90" r="4" fill="#d4af37"/>
-                        <circle cx="50" cy="105" r="4" fill="#d4af37"/>
-                        
-                        <!-- Gold Trim -->
-                        <rect x="27" y="60" width="6" height="60" fill="#d4af37"/>
-                        <rect x="67" y="60" width="6" height="60" fill="#d4af37"/>
-                        <rect x="25" y="60" width="50" height="4" fill="#d4af37"/>
-                        <rect x="25" y="116" width="50" height="4" fill="#d4af37"/>
-                        
-                        <!-- Belt -->
-                        <rect x="25" y="110" width="50" height="8" fill="#1a1a1a"/>
-                        <rect x="45" y="111" width="10" height="6" fill="#d4af37"/>
-                        
-                        <!-- Legs - Blue Pants -->
-                        <rect x="30" y="120" width="18" height="45" fill="#1e3a5f"/>
-                        <rect x="52" y="120" width="18" height="45" fill="#1e3a5f"/>
-                        
-                        <!-- Boots -->
-                        <rect x="28" y="165" width="20" height="30" rx="3" fill="#1a1a1a"/>
-                        <rect x="52" y="165" width="20" height="30" rx="3" fill="#1a1a1a"/>
-                        
-                        <!-- Gold Boot Details -->
-                        <line x1="30" y1="175" x2="45" y2="175" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="30" y1="182" x2="45" y2="182" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="54" y1="175" x2="69" y2="175" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="54" y1="182" x2="69" y2="182" stroke="#d4af37" stroke-width="2"/>
-                    </svg>
+                    <img src="nutcracker.png" alt="Nutcracker Guard">
                 </div>
                 
                 <h1>THE BROADMOOR</h1>
                 
                 <div class="nutcracker nutcracker-right">
-                    <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Hat -->
-                        <rect x="25" y="10" width="50" height="15" fill="#1a1a1a"/>
-                        <circle cx="50" cy="10" r="20" fill="#cc0000"/>
-                        <rect x="30" y="22" width="40" height="3" fill="#d4af37"/>
-                        
-                        <!-- Head -->
-                        <rect x="30" y="25" width="40" height="35" rx="5" fill="#f0d5a8"/>
-                        
-                        <!-- Eyes -->
-                        <circle cx="40" cy="35" r="3" fill="#2c3e50"/>
-                        <circle cx="60" cy="35" r="3" fill="#2c3e50"/>
-                        
-                        <!-- Mustache -->
-                        <ellipse cx="35" cy="48" rx="8" ry="3" fill="#1a1a1a"/>
-                        <ellipse cx="65" cy="48" rx="8" ry="3" fill="#1a1a1a"/>
-                        
-                        <!-- Mouth -->
-                        <rect x="42" y="50" width="16" height="8" fill="#1a1a1a"/>
-                        <rect x="43" y="51" width="3" height="6" fill="#fff"/>
-                        <rect x="48" y="51" width="3" height="6" fill="#fff"/>
-                        <rect x="53" y="51" width="3" height="6" fill="#fff"/>
-                        
-                        <!-- Body - Red Jacket -->
-                        <rect x="25" y="60" width="50" height="60" rx="5" fill="#cc0000"/>
-                        
-                        <!-- Gold Buttons -->
-                        <circle cx="50" cy="75" r="4" fill="#d4af37"/>
-                        <circle cx="50" cy="90" r="4" fill="#d4af37"/>
-                        <circle cx="50" cy="105" r="4" fill="#d4af37"/>
-                        
-                        <!-- Gold Trim -->
-                        <rect x="27" y="60" width="6" height="60" fill="#d4af37"/>
-                        <rect x="67" y="60" width="6" height="60" fill="#d4af37"/>
-                        <rect x="25" y="60" width="50" height="4" fill="#d4af37"/>
-                        <rect x="25" y="116" width="50" height="4" fill="#d4af37"/>
-                        
-                        <!-- Belt -->
-                        <rect x="25" y="110" width="50" height="8" fill="#1a1a1a"/>
-                        <rect x="45" y="111" width="10" height="6" fill="#d4af37"/>
-                        
-                        <!-- Legs - Blue Pants -->
-                        <rect x="30" y="120" width="18" height="45" fill="#1e3a5f"/>
-                        <rect x="52" y="120" width="18" height="45" fill="#1e3a5f"/>
-                        
-                        <!-- Boots -->
-                        <rect x="28" y="165" width="20" height="30" rx="3" fill="#1a1a1a"/>
-                        <rect x="52" y="165" width="20" height="30" rx="3" fill="#1a1a1a"/>
-                        
-                        <!-- Gold Boot Details -->
-                        <line x1="30" y1="175" x2="45" y2="175" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="30" y1="182" x2="45" y2="182" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="54" y1="175" x2="69" y2="175" stroke="#d4af37" stroke-width="2"/>
-                        <line x1="54" y1="182" x2="69" y2="182" stroke="#d4af37" stroke-width="2"/>
-                    </svg>
+                    <img src="nutcracker.png" alt="Nutcracker Guard">
                 </div>
             </div>
             <h2>Colorado Springs</h2>
@@ -795,6 +752,14 @@
             </div>
         </div>
 
+        <!-- Pine Garland Divider -->
+        <div class="pine-divider">
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+        </div>
+
         <div class="activity-card">
             <img src="image_b24f1d.png" class="activity-card-image" alt="Ristorante Del Lago">
             <div class="activity-content">
@@ -807,6 +772,14 @@
                     <p><a href="https://www.broadmoor.com/dining/ristorante-del-lago" target="_blank">View Ristorante Del Lago Menu →</a></p>
                 </div>
             </div>
+        </div>
+
+        <!-- Pine Garland Divider -->
+        <div class="pine-divider">
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
         </div>
 
         <div class="activity-card">
@@ -822,6 +795,14 @@
                     <p><a href="https://www.broadmoor.com/dining/the-penrose-room" target="_blank">View The Penrose Room Menu →</a></p>
                 </div>
             </div>
+        </div>
+
+        <!-- Pine Garland Divider -->
+        <div class="pine-divider">
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
+            <div class="pine-needles"></div>
         </div>
 
         <div class="activity-card">
@@ -853,7 +834,7 @@
         </div>
 
         <div class="activity-card">
-            <img src="image_b252bb.png" class="activity-card-image" alt="Broadmoor Grand Lobby">
+            <img src="k6lP09L.png" class="activity-card-image" alt="Broadmoor Grand Lobby">
             <div class="activity-content">
                 <h3>The Grand Lobby Experience</h3>
                 <p><strong>Available Daily</strong></p>
@@ -875,6 +856,18 @@
         let isPlaying = false;
         const audio = document.getElementById('christmasAudio');
         const musicText = document.getElementById('musicText');
+        const musicButton = document.getElementById('musicPlayer');
+
+        // Check if audio file exists
+        audio.addEventListener('error', function(e) {
+            console.error('Audio loading error:', e);
+            musicText.textContent = 'Music Unavailable';
+            musicButton.style.opacity = '0.5';
+        });
+
+        audio.addEventListener('canplay', function() {
+            console.log('Audio is ready to play');
+        });
 
         function toggleMusic() {
             if (isPlaying) {
@@ -882,12 +875,25 @@
                 musicText.textContent = 'Play Holiday Music';
                 isPlaying = false;
             } else {
-                audio.play().catch(function(error) {
-                    console.log('Audio playback failed:', error);
-                    alert('Please interact with the page to enable music playback.');
-                });
-                musicText.textContent = 'Pause Music';
-                isPlaying = true;
+                // Try to play the audio
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(function() {
+                            // Audio is playing successfully
+                            musicText.textContent = 'Pause Music';
+                            isPlaying = true;
+                            console.log('Audio playing successfully');
+                        })
+                        .catch(function(error) {
+                            // Auto-play was prevented or another error occurred
+                            console.error('Playback error:', error);
+                            alert('Unable to play music. Please check that the Christmas.mp3 file is in the same folder as index.html');
+                            musicText.textContent = 'Play Holiday Music';
+                            isPlaying = false;
+                        });
+                }
             }
         }
 
