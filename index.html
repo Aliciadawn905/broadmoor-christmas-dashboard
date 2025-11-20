@@ -111,23 +111,6 @@
             display: inline-block;
         }
 
-        /* Holly decoration - now using image */
-        .holly-decoration {
-            position: absolute;
-            top: -45px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: auto;
-            z-index: 10;
-        }
-
-        .holly-decoration img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        }
-
         .main-title h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4.5em;
@@ -296,25 +279,108 @@
                 0 0 50px rgba(212, 175, 55, 0.3);
         }
 
-        /* Garland draped on top of cards */
+        /* Garland draped on top of cards - CSS CREATED */
         .garland-drape {
             position: absolute;
-            top: -40px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            height: 100px;
+            width: 95%;
+            height: 120px;
             z-index: 10;
             pointer-events: none;
         }
 
-        .garland-drape img {
+        /* Pine branch base */
+        .garland-drape::before {
+            content: '';
+            position: absolute;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+            height: 60px;
+            top: 30px;
+            background: 
+                /* Main pine branch layer */
+                radial-gradient(ellipse 100px 40px at 10%, #1a5c1a 0%, transparent 60%),
+                radial-gradient(ellipse 110px 45px at 15%, #0f4d0f 0%, transparent 65%),
+                radial-gradient(ellipse 120px 50px at 20%, #1a5c1a 0%, transparent 65%),
+                radial-gradient(ellipse 130px 55px at 30%, #0f4d0f 0%, transparent 70%),
+                radial-gradient(ellipse 140px 60px at 40%, #1a5c1a 0%, transparent 70%),
+                radial-gradient(ellipse 150px 65px at 50%, #0f4d0f 0%, transparent 75%),
+                radial-gradient(ellipse 140px 60px at 60%, #1a5c1a 0%, transparent 70%),
+                radial-gradient(ellipse 130px 55px at 70%, #0f4d0f 0%, transparent 70%),
+                radial-gradient(ellipse 120px 50px at 80%, #1a5c1a 0%, transparent 65%),
+                radial-gradient(ellipse 110px 45px at 85%, #0f4d0f 0%, transparent 65%),
+                radial-gradient(ellipse 100px 40px at 90%, #1a5c1a 0%, transparent 60%);
+            filter: blur(1px) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
         }
+
+        /* Center pinecone cluster */
+        .garland-drape::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background:
+                /* Three pinecones */
+                radial-gradient(ellipse 35px 50px at 30% 40%, #8b6914 0%, #5d4610 40%, transparent 70%),
+                radial-gradient(ellipse 40px 55px at 50% 35%, #6b5320 0%, #5d4610 45%, transparent 70%),
+                radial-gradient(ellipse 35px 50px at 70% 40%, #8b6914 0%, #5d4610 40%, transparent 70%);
+            border-radius: 50%;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Red berries and gold accents */
+        .pine-accent {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .pine-accent.berry {
+            background: radial-gradient(circle, #cc0000 30%, #8b0000 100%);
+            box-shadow: 
+                inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+                0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .pine-accent.gold {
+            background: radial-gradient(circle, #ffd700 20%, #d4af37 100%);
+            box-shadow: 
+                inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+                0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Position berries and gold ornaments */
+        .pine-accent:nth-child(1) { top: 45px; left: 20%; }
+        .pine-accent:nth-child(2) { top: 40px; left: 35%; }
+        .pine-accent:nth-child(3) { top: 35px; left: 45%; }
+        .pine-accent:nth-child(4) { top: 40px; right: 35%; }
+        .pine-accent:nth-child(5) { top: 45px; right: 20%; }
+        .pine-accent:nth-child(6) { top: 50px; left: 25%; }
+        .pine-accent:nth-child(7) { top: 50px; right: 25%; }
+        .pine-accent:nth-child(8) { top: 42px; left: 55%; }
+
+        /* Small pinecones scattered */
+        .pine-cone-small {
+            position: absolute;
+            width: 20px;
+            height: 28px;
+            background: 
+                radial-gradient(ellipse at 50% 25%, #8b6914 0%, #5d4610 50%, transparent 70%),
+                radial-gradient(ellipse at 50% 75%, #6b5320 0%, #5d4610 50%, transparent 70%);
+            border-radius: 45% 45% 50% 50%;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .pine-cone-small:nth-child(9) { top: 50px; left: 15%; transform: rotate(-15deg); }
+        .pine-cone-small:nth-child(10) { top: 48px; left: 40%; transform: rotate(20deg); }
+        .pine-cone-small:nth-child(11) { top: 48px; right: 40%; transform: rotate(-20deg); }
+        .pine-cone-small:nth-child(12) { top: 50px; right: 15%; transform: rotate(15deg); }
 
         .activity-card-image {
             width: 100%;
@@ -369,15 +435,19 @@
             border-bottom-color: #8b1a1a;
         }
 
-        /* Snowflakes - VISIBLE */
+        /* Snowflakes - HIGHLY VISIBLE */
         .snowflake {
-            position: fixed;
-            color: #ffffff;
-            font-size: 2.5em;
+            position: fixed !important;
+            color: #ffffff !important;
+            font-size: 3em !important;
             pointer-events: none;
-            z-index: 9999;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            z-index: 99999 !important;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(255, 255, 255, 0.6) !important;
             animation: snowfall linear forwards;
+            font-weight: bold !important;
         }
 
         @keyframes snowfall {
@@ -486,16 +556,12 @@
 
     <!-- Hero Section -->
     <div class="hero-section">
+        <!-- Holly at the top center -->
         <div class="ornament-logo">
-            <img src="b52mJpT.png" alt="Broadmoor Christmas Ornament">
+            <img src="holly.png" alt="Holiday Holly" style="max-width: 150px;">
         </div>
         <div class="main-title">
             <div class="title-container">
-                <!-- Holly decoration using uploaded image -->
-                <div class="holly-decoration">
-                    <img src="holly.png" alt="Holiday Holly">
-                </div>
-                
                 <!-- Nutcracker Bookends using uploaded image -->
                 <div class="nutcracker nutcracker-left">
                     <img src="Nutcracker2.png" alt="Nutcracker Guard">
@@ -541,9 +607,20 @@
         <h2 class="section-title">Confirmed Dining Reservations</h2>
 
         <div class="activity-card" style="position: relative;">
-            <!-- Garland draped on top -->
+            <!-- CSS Pine Garland draped on top -->
             <div class="garland-drape">
-                <img src="Screenshot_2025-11-19_at_9_39_39_PM.png" alt="Pine Garland">
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-accent gold"></div>
+                <div class="pine-accent berry"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
+                <div class="pine-cone-small"></div>
             </div>
             <img src="image_b252bb.png" class="activity-card-image" alt="Lake Terrace Dining Room">
             <div class="activity-content">
@@ -649,6 +726,8 @@
         
         // SNOWFALL INITIALIZATION
         console.log('\n--- SNOWFALL SYSTEM ---');
+        let snowflakeCount = 0;
+        
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
@@ -656,21 +735,38 @@
             snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
             snowflake.style.left = Math.random() * 100 + 'vw';
             snowflake.style.animationDuration = (Math.random() * 12 + 10) + 's';
-            snowflake.style.fontSize = (Math.random() * 1.5 + 2) + 'em';
+            snowflake.style.fontSize = (Math.random() * 2 + 2.5) + 'em';
             document.body.appendChild(snowflake);
+            snowflakeCount++;
+            
+            if (snowflakeCount <= 5) {
+                console.log(`Snowflake #${snowflakeCount} created at position ${snowflake.style.left}`);
+            }
+            
             setTimeout(() => {
                 if (snowflake && snowflake.parentNode) {
                     snowflake.remove();
+                    snowflakeCount--;
                 }
             }, 22000);
         }
         
         // Create initial snowflakes
+        console.log('Creating 30 initial snowflakes...');
         for (let i = 0; i < 30; i++) {
             setTimeout(createSnowflake, i * 200);
         }
         setInterval(createSnowflake, 600);
         console.log('✓ Snowfall system active');
+        
+        // Verify snowflakes after 2 seconds
+        setTimeout(() => {
+            const allSnowflakes = document.querySelectorAll('.snowflake');
+            console.log(`✓ Currently ${allSnowflakes.length} snowflakes on screen`);
+            if (allSnowflakes.length === 0) {
+                console.error('❌ WARNING: No snowflakes visible! Check CSS z-index.');
+            }
+        }, 2000);
 
         // MUSIC PLAYER INITIALIZATION
         console.log('\n--- MUSIC PLAYER ---');
