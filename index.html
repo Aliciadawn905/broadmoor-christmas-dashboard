@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎄 Our Christmas at The Broadmoor 🎁</title>
+    <title>🎄 Our Broadmoor Christmas Itinerary 🎁</title>
     <style>
         /* CSS for the Festive Look */
         body {
@@ -18,10 +18,23 @@
         .header {
             background-color: #b22222; /* Festive Red */
             color: #ffffff;
-            padding: 30px 20px;
-            font-size: 2.5em;
+            padding: 30px 20px 0; /* Adjusted padding */
             letter-spacing: 2px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            width: 100%;
+            max-width: 750px; /* Large image for the header */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
         }
 
         .header span {
@@ -47,15 +60,26 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             margin: 20px 0;
-            padding: 20px;
+            padding: 0; /* Remove internal padding for full-width image */
             text-align: left;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s;
+            overflow: hidden; /* Contains the image */
         }
 
         .activity-card:hover {
             transform: translateY(-5px); /* Lift effect on hover */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-card-image {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures image covers the area nicely */
+        }
+
+        .activity-content {
+            padding: 20px; /* Inner padding for text */
         }
 
         .activity-card h3 {
@@ -78,63 +102,103 @@
             font-size: 0.9em;
             color: #555;
             margin-top: 10px;
+            line-height: 1.6;
+        }
+        .details strong {
+            color: #333;
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        Our Christmas <span>Adventure</span>
-        <p style="font-size: 0.5em; margin-top: 5px;">at The Broadmoor, CO Springs</p>
+        <img src="./image_b2563d.jpg" alt="The Broadmoor decorated with Christmas lights">
+        <h1>🎄 Our Christmas <span>Itinerary</span> 🎁</h1>
+        <p style="font-size: 0.5em; margin-top: 5px; padding-bottom: 30px;">at The Broadmoor, CO Springs</p>
     </div>
 
     <div class="container">
 
-        <h2 class="section-title">📅 Itinerary & Activities</h2>
+        <h2 class="section-title">🏨 Accommodation</h2>
 
         <div class="activity-card">
-            <h3>🏨 Broadmoor Hotel Stay</h3>
-            <p><strong>Check-in:</strong> Dec 23rd | <strong>Check-out:</strong> Dec 27th</p>
-            <p class="details">
-                **Confirmation:** #BM-XMAS-123456<br>
-                <a href="https://www.broadmoor.com/" target="_blank">View Broadmoor Website & Map</a>
-            </p>
+            <img src="./image_b255e4.jpg" class="activity-card-image" alt="Broadmoor West Premier Room">
+            <div class="activity-content">
+                <h3>BROADMOOR WEST PREMIER</h3>
+                <p><strong>Check-in:</strong> Dec 14th, 2025 | <strong>Check-out:</strong> Dec 18th, 2025*</p>
+                <p class="details">
+                    **Room Type:** Broadmoor West Premier (550 sq. ft.)<br>
+                    **Note:** *Please confirm the exact check-in/out dates with your confirmation email.<br>
+                    <a href="https://www.broadmoor.com/accommodations" target="_blank">View Broadmoor Accommodations</a>
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">🍽️ Confirmed Dining Reservations</h2>
+
+        <div class="activity-card">
+            <img src="./image_b252bb.jpg" class="activity-card-image" alt="Lake Terrace Dining Room Setup">
+            <div class="activity-content">
+                <h3>🍽️ Lake Terrace Dining Room (Sunday Brunch)</h3>
+                <p><strong>Date:</strong> Sunday, December 14, 2025 | <strong>Time:</strong> 9:00 AM</p>
+                <p class="details">
+                    **Confirmation:** d0581a4a88d<br>
+                    **Guests:** 1 (Please confirm size)<br>
+                    **Details:** Extensive buffet menu with piano music and views of the lake.
+                </p>
+            </div>
+        </div>
+        
+        <div class="activity-card">
+            <img src="./image_b24f1d.jpg" class="activity-card-image" alt="Ristorante Del Lago Interior">
+            <div class="activity-content">
+                <h3>🍽️ Ristorante Del Lago (Italian)</h3>
+                <p><strong>Date:</strong> Monday, December 15, 2025 | <strong>Time:</strong> 6:30 PM</p>
+                <p class="details">
+                    **Confirmation:** 38cfla4aa7c<br>
+                    **Guests:** 2<br>
+                    **Details:** Authentic Italian cuisine, wood-fired pizza, overlooking Cheyenne Lake.
+                </p>
+            </div>
         </div>
 
         <div class="activity-card">
-            <h3>🍽️ Dinner: Golden Bee</h3>
-            <p><strong>Date:</strong> Dec 24th | <strong>Time:</strong> 7:00 PM</p>
-            <p class="details">
-                **Type:** English Pub | **Location:** Broadmoor West Lobby<br>
-                <a href="https://www.broadmoor.com/dining/golden-bee" target="_blank">View Golden Bee Menu</a>
-            </p>
+            <img src="./image_b25262.png" class="activity-card-image" alt="The Penrose Room Interior">
+            <div class="activity-content">
+                <h3>🍽️ The Penrose Room (Elegant Fine Dining)</h3>
+                <p><strong>Date:</strong> Tuesday, December 16, 2025 | <strong>Time:</strong> 6:00 PM</p>
+                <p class="details">
+                    **Confirmation:** 50bd1a4aa3b<br>
+                    **Guests:** 2<br>
+                    **Notes:** Elevated service and extraordinary views. Elegant attire required.
+                </p>
+            </div>
+        </div>
+        
+        <div class="activity-card">
+            <img src="./image_b25200.jpg" class="activity-card-image" alt="La Taverne Bar Area">
+            <div class="activity-content">
+                <h3>🍽️ La Taverne (Steakhouse)</h3>
+                <p><strong>Date:</strong> Wednesday, December 17, 2025 | <strong>Time:</strong> 11:00 AM</p>
+                <p class="details">
+                    **Confirmation:** 43851a4aafb<br>
+                    **Guests:** 2<br>
+                    **Details:** Hand-cut prime steaks and an extensive wine list.
+                </p>
+            </div>
         </div>
 
+        <h2 class="section-title">✨ Other Holiday Fun</h2>
+        
         <div class="activity-card">
-            <h3>🍽️ Christmas Day Dinner: Summit</h3>
-            <p><strong>Date:</strong> Dec 25th | <strong>Time:</strong> 6:30 PM</p>
-            <p class="details">
-                **Type:** Modern American | **Location:** Broadmoor Main Building<br>
-                <a href="https://www.broadmoor.com/dining/summit" target="_blank">View Summit Menu</a>
-            </p>
-        </div>
-
-        <div class="activity-card">
-            <h3>🍽️ Dinner: Ristorante Del Lago</h3>
-            <p><strong>Date:</strong> Dec 26th | <strong>Time:</strong> 8:00 PM</p>
-            <p class="details">
-                **Type:** Authentic Italian | **Location:** Broadmoor by the Lake<br>
-                <a href="https://www.broadmoor.com/dining/ristorante-del-lago" target="_blank">View Del Lago Menu</a>
-            </p>
-        </div>
-
-        <div class="activity-card">
-            <h3>⛸️ Ice Skating at Broadmoor World Arena</h3>
-            <p><strong>Date:</strong> Dec 24th | <strong>Time:</strong> 2:00 PM</p>
-            <p class="details">
-                **Notes:** Check arena hours before we go! <br>
-                <a href="https://www.broadmoorworldarena.com/" target="_blank">Broadmoor Arena Website</a>
-            </p>
+            <div class="activity-content">
+                <h3>Explore The Broadmoor's Holiday Offerings</h3>
+                <p><strong>Dates:</strong> Throughout our stay!</p>
+                <p class="details">
+                    Check out all the special seasonal events, displays, and activities offered by the hotel.<br>
+                    <a href="https://www.broadmoor.com/holidays" target="_blank">View Broadmoor Holiday Events & Activities</a>
+                </p>
+            </div>
         </div>
 
     </div>
