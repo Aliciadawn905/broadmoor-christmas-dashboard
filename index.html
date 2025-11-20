@@ -257,25 +257,28 @@
         /* Nutcracker bookends */
         .nutcracker {
             position: absolute;
-            width: 100px;
+            width: 130px;
             height: auto;
             top: 50%;
             transform: translateY(-50%);
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
             z-index: 4;
+            background: transparent;
         }
 
         .nutcracker-left {
-            left: -130px;
+            left: -160px;
         }
 
         .nutcracker-right {
-            right: -130px;
+            right: -160px;
         }
 
         .nutcracker img {
             width: 100%;
             height: auto;
+            background: transparent;
+            mix-blend-mode: darken;
         }
 
         .main-title h2 {
@@ -528,64 +531,113 @@
             }
         }
 
-        /* Pine Garland Divider */
+        /* Realistic Pine Garland Divider */
         .pine-divider {
             width: 100%;
-            height: 80px;
+            height: 100px;
             margin: 40px 0;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
+        /* Main pine branch garland */
         .pine-divider::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 20px;
+            width: 80%;
+            height: 40px;
             background: 
-                repeating-linear-gradient(
-                    90deg,
-                    #0f4d0f 0px,
-                    #1a5c1a 10px,
-                    #0f4d0f 20px,
-                    #1a5c1a 30px,
-                    #0f4d0f 40px
-                );
-            border-radius: 10px;
-            box-shadow: 
-                0 4px 8px rgba(0, 0, 0, 0.3),
-                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+                /* Pine needles clusters */
+                radial-gradient(ellipse 80px 30px at 10%, #1a5c1a 0%, transparent 50%),
+                radial-gradient(ellipse 90px 35px at 15%, #0f4d0f 0%, transparent 55%),
+                radial-gradient(ellipse 85px 32px at 25%, #1a5c1a 0%, transparent 50%),
+                radial-gradient(ellipse 95px 38px at 35%, #0f4d0f 0%, transparent 55%),
+                radial-gradient(ellipse 100px 40px at 50%, #1a5c1a 0%, transparent 60%),
+                radial-gradient(ellipse 95px 38px at 65%, #0f4d0f 0%, transparent 55%),
+                radial-gradient(ellipse 85px 32px at 75%, #1a5c1a 0%, transparent 50%),
+                radial-gradient(ellipse 90px 35px at 85%, #0f4d0f 0%, transparent 55%),
+                radial-gradient(ellipse 80px 30px at 90%, #1a5c1a 0%, transparent 50%);
+            filter: blur(1px) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
+        /* Pinecone in center */
         .pine-divider::after {
             content: '';
             position: absolute;
-            width: 60px;
+            width: 45px;
             height: 60px;
             background: 
-                radial-gradient(ellipse at center, #8b6914 0%, #5d4610 50%, transparent 50%),
-                radial-gradient(ellipse at 30% 40%, #6b5320 0%, transparent 30%),
-                radial-gradient(ellipse at 70% 40%, #6b5320 0%, transparent 30%);
-            border-radius: 50% 50% 55% 55%;
-            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+                /* Pinecone scales pattern */
+                radial-gradient(ellipse at 50% 20%, #8b6914 0%, #5d4610 40%, transparent 60%),
+                radial-gradient(ellipse at 35% 35%, #6b5320 0%, #5d4610 40%, transparent 50%),
+                radial-gradient(ellipse at 65% 35%, #6b5320 0%, #5d4610 40%, transparent 50%),
+                radial-gradient(ellipse at 25% 50%, #8b6914 0%, #5d4610 35%, transparent 45%),
+                radial-gradient(ellipse at 75% 50%, #8b6914 0%, #5d4610 35%, transparent 45%),
+                radial-gradient(ellipse at 50% 50%, #6b5320 0%, #5d4610 40%, transparent 50%),
+                radial-gradient(ellipse at 35% 65%, #8b6914 0%, #5d4610 35%, transparent 45%),
+                radial-gradient(ellipse at 65% 65%, #8b6914 0%, #5d4610 35%, transparent 45%),
+                radial-gradient(ellipse at 50% 80%, #6b5320 0%, #5d4610 40%, transparent 50%);
+            border-radius: 45% 45% 50% 50%;
+            box-shadow: 
+                inset 0 2px 8px rgba(0, 0, 0, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.5);
             z-index: 2;
         }
 
+        /* Additional pine needle details */
         .pine-needles {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(ellipse, #0f4d0f 30%, transparent 70%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(ellipse, #0f4d0f 20%, #1a5c1a 40%, transparent 65%);
             border-radius: 50%;
-            opacity: 0.6;
+            opacity: 0.7;
+            filter: blur(2px);
         }
 
-        .pine-needles:nth-child(1) { left: 20%; top: -10px; }
-        .pine-needles:nth-child(2) { left: 35%; top: -15px; }
-        .pine-needles:nth-child(3) { right: 35%; top: -15px; }
-        .pine-needles:nth-child(4) { right: 20%; top: -10px; }
+        .pine-needles:nth-child(1) { 
+            left: 12%; 
+            top: -5px;
+            width: 70px;
+            height: 50px;
+        }
+        .pine-needles:nth-child(2) { 
+            left: 28%; 
+            top: -8px; 
+            width: 65px;
+            height: 55px;
+        }
+        .pine-needles:nth-child(3) { 
+            right: 28%; 
+            top: -8px; 
+            width: 65px;
+            height: 55px;
+        }
+        .pine-needles:nth-child(4) { 
+            right: 12%; 
+            top: -5px;
+            width: 70px;
+            height: 50px;
+        }
+
+        /* Small pinecones scattered */
+        .pine-divider .pine-needles::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 35px;
+            background: 
+                radial-gradient(ellipse at 50% 30%, #8b6914 0%, #5d4610 50%, transparent 70%),
+                radial-gradient(ellipse at 50% 70%, #6b5320 0%, #5d4610 50%, transparent 70%);
+            border-radius: 45% 45% 50% 50%;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-15deg);
+        }
 
         /* Footer decoration */
         .footer-decoration {
@@ -601,13 +653,13 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .nutcracker {
-                width: 80px;
+                width: 110px;
             }
             .nutcracker-left {
-                left: -100px;
+                left: -130px;
             }
             .nutcracker-right {
-                right: -100px;
+                right: -130px;
             }
         }
 
@@ -852,29 +904,94 @@
     </div>
 
     <script>
+        console.log('=== MUSIC PLAYER INITIALIZATION ===');
+        
         // Music Player Functionality
         let isPlaying = false;
         const audio = document.getElementById('christmasAudio');
         const musicText = document.getElementById('musicText');
         const musicButton = document.getElementById('musicPlayer');
 
-        // Check if audio file exists
-        audio.addEventListener('error', function(e) {
-            console.error('Audio loading error:', e);
-            musicText.textContent = 'Music Unavailable';
-            musicButton.style.opacity = '0.5';
-        });
-
-        audio.addEventListener('canplay', function() {
-            console.log('Audio is ready to play');
-        });
+        console.log('Audio element:', audio);
+        console.log('Audio src:', audio ? audio.src : 'Audio element not found');
+        console.log('Current URL:', window.location.href);
+        
+        // Check if audio element exists
+        if (!audio) {
+            console.error('ERROR: Audio element not found!');
+        } else {
+            console.log('Audio element found successfully');
+            
+            // Log audio properties
+            console.log('Audio readyState:', audio.readyState);
+            console.log('Audio networkState:', audio.networkState);
+            
+            // Check if audio file can be loaded
+            audio.addEventListener('loadstart', function() {
+                console.log('Audio loading started...');
+            });
+            
+            audio.addEventListener('loadeddata', function() {
+                console.log('✓ Audio data loaded successfully!');
+            });
+            
+            audio.addEventListener('canplay', function() {
+                console.log('✓ Audio is ready to play!');
+            });
+            
+            audio.addEventListener('error', function(e) {
+                console.error('❌ AUDIO ERROR:', e);
+                console.error('Error code:', audio.error ? audio.error.code : 'unknown');
+                console.error('Error message:', audio.error ? audio.error.message : 'unknown');
+                
+                let errorMsg = 'Music file not found. ';
+                if (audio.error) {
+                    switch(audio.error.code) {
+                        case 1:
+                            errorMsg += 'Loading aborted';
+                            break;
+                        case 2:
+                            errorMsg += 'Network error';
+                            break;
+                        case 3:
+                            errorMsg += 'Decoding failed';
+                            break;
+                        case 4:
+                            errorMsg += 'File format not supported or file not found';
+                            break;
+                    }
+                }
+                
+                musicText.textContent = 'Music Unavailable';
+                musicButton.style.opacity = '0.5';
+                alert(errorMsg + '\n\nMake sure Christmas.mp3 is in the same folder as index.html');
+            });
+            
+            // Attempt to load the audio
+            console.log('Attempting to load audio file...');
+            audio.load();
+        }
 
         function toggleMusic() {
+            console.log('=== TOGGLE MUSIC CLICKED ===');
+            console.log('Is currently playing:', isPlaying);
+            
+            if (!audio) {
+                console.error('Cannot play: audio element not found');
+                alert('Audio player not initialized');
+                return;
+            }
+            
             if (isPlaying) {
+                console.log('Pausing music...');
                 audio.pause();
                 musicText.textContent = 'Play Holiday Music';
                 isPlaying = false;
+                console.log('Music paused');
             } else {
+                console.log('Attempting to play music...');
+                console.log('Audio readyState before play:', audio.readyState);
+                
                 // Try to play the audio
                 const playPromise = audio.play();
                 
@@ -882,49 +999,85 @@
                     playPromise
                         .then(function() {
                             // Audio is playing successfully
+                            console.log('✓✓✓ MUSIC PLAYING SUCCESSFULLY! ✓✓✓');
                             musicText.textContent = 'Pause Music';
                             isPlaying = true;
-                            console.log('Audio playing successfully');
                         })
                         .catch(function(error) {
                             // Auto-play was prevented or another error occurred
-                            console.error('Playback error:', error);
-                            alert('Unable to play music. Please check that the Christmas.mp3 file is in the same folder as index.html');
+                            console.error('❌ PLAYBACK ERROR:', error);
+                            console.error('Error name:', error.name);
+                            console.error('Error message:', error.message);
+                            
+                            let alertMsg = 'Cannot play music:\n\n';
+                            
+                            if (error.name === 'NotSupportedError') {
+                                alertMsg += 'Audio format not supported or file not found.\n';
+                                alertMsg += 'Make sure Christmas.mp3 exists in your GitHub repository.';
+                            } else if (error.name === 'NotAllowedError') {
+                                alertMsg += 'Browser blocked autoplay.\n';
+                                alertMsg += 'This is normal - just click the button again!';
+                            } else {
+                                alertMsg += error.message;
+                            }
+                            
+                            alert(alertMsg);
                             musicText.textContent = 'Play Holiday Music';
                             isPlaying = false;
                         });
+                } else {
+                    console.warn('Play promise is undefined');
                 }
             }
         }
+        
+        console.log('Music player initialization complete');
+        console.log('================================\n');
 
         // Enhanced Snowfall Effect
+        console.log('Starting snowfall effect...');
+        
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
             
             // Variety of snowflake symbols
-            const symbols = ['❄', '❅', '❆'];
+            const symbols = ['❄', '❅', '❆', '✻', '✼'];
             snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
             
+            // Random horizontal position
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = (Math.random() * 8 + 8) + 's';
-            snowflake.style.fontSize = (Math.random() * 1 + 1) + 'em';
-            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            
+            // Random animation duration (slower = more elegant)
+            const duration = (Math.random() * 10 + 10) + 's';
+            snowflake.style.animationDuration = duration;
+            
+            // Random size
+            const size = (Math.random() * 1.5 + 1.5) + 'em';
+            snowflake.style.fontSize = size;
+            
+            // Opacity
+            snowflake.style.opacity = Math.random() * 0.4 + 0.6;
             
             document.body.appendChild(snowflake);
-
+            
+            // Remove after animation completes
             setTimeout(() => {
-                snowflake.remove();
-            }, 16000);
+                if (snowflake && snowflake.parentNode) {
+                    snowflake.remove();
+                }
+            }, parseFloat(duration) * 1000);
         }
 
-        // Create snowflakes continuously
-        setInterval(createSnowflake, 400);
-
-        // Initial snowflakes
-        for (let i = 0; i < 25; i++) {
-            setTimeout(createSnowflake, i * 300);
+        // Create initial batch of snowflakes
+        console.log('Creating initial snowflakes...');
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => createSnowflake(), i * 200);
         }
+
+        // Create new snowflakes continuously
+        setInterval(createSnowflake, 500);
+        console.log('Snowfall effect initialized');
 
         // Gold Sparkles Effect
         function createSparkle() {
